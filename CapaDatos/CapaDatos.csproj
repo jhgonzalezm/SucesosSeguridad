@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="CD_Usuarios.cs" />
     <Compile Include="CD_Conexion.cs" />
-    <Compile Include="CD_Productos.cs" />
+    <Compile Include="CD_Registro.cs" />
     <Compile Include="CD_Terminal.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DEnumeradores.cs" />

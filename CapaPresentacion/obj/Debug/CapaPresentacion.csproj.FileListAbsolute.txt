@@ -1,0 +1,6 @@
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaPresentacion\bin\Debug\CapaPresentacion.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaPresentacion\obj\Debug\CapaPresentacion.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaPresentacion\obj\Debug\CapaPresentacion.pdb

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SO_Paz_y_Salvo.Properties {
+namespace SO_Eventos.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

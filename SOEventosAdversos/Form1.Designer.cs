@@ -29,14 +29,17 @@ namespace SO_Paz_y_Salvo
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btGnSalir = new System.Windows.Forms.Button();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.btnFiltro = new System.Windows.Forms.Button();
+            this.txtReg = new System.Windows.Forms.TextBox();
+            this.lbltxtReg = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBuscarPaciente = new System.Windows.Forms.TextBox();
-            this.cbUltimosRegistros = new System.Windows.Forms.ComboBox();
             this.ckbFechas = new System.Windows.Forms.CheckBox();
             this.dpFecFin = new System.Windows.Forms.DateTimePicker();
             this.dpFecIni = new System.Windows.Forms.DateTimePicker();
@@ -45,27 +48,28 @@ namespace SO_Paz_y_Salvo
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.gbRegSucesos = new System.Windows.Forms.GroupBox();
+            this.txtOut = new System.Windows.Forms.TextBox();
+            this.cbAseguradora = new System.Windows.Forms.ComboBox();
             this.gbMedicamentos = new System.Windows.Forms.GroupBox();
-            this.dpFechaVenc = new System.Windows.Forms.DateTimePicker();
+            this.dpRelFec = new System.Windows.Forms.DateTimePicker();
             this.label29 = new System.Windows.Forms.Label();
-            this.txtRegInvima = new System.Windows.Forms.TextBox();
+            this.txtRelInv = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.txtNombreMed = new System.Windows.Forms.TextBox();
-            this.txtLote = new System.Windows.Forms.TextBox();
+            this.txtRelMed = new System.Windows.Forms.TextBox();
+            this.txtRelLot = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.cbMedicamento = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtAseguradora = new System.Windows.Forms.TextBox();
-            this.txtPaciente = new System.Windows.Forms.TextBox();
+            this.txtNomPac = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
-            this.txtDescripcionSuceso = new System.Windows.Forms.TextBox();
+            this.txtDescrip = new System.Windows.Forms.TextBox();
             this.txtEdad = new System.Windows.Forms.TextBox();
-            this.txtQuienReporta = new System.Windows.Forms.TextBox();
-            this.txtIdPaciente = new System.Windows.Forms.TextBox();
+            this.txtRepNom = new System.Windows.Forms.TextBox();
+            this.txtIdPac = new System.Windows.Forms.TextBox();
             this.cbCargoRol = new System.Windows.Forms.ComboBox();
             this.cbRegionalSede = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -75,6 +79,7 @@ namespace SO_Paz_y_Salvo
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btRegSuceso = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label41 = new System.Windows.Forms.Label();
             this.cbCausaRaiz = new System.Windows.Forms.ComboBox();
@@ -86,7 +91,7 @@ namespace SO_Paz_y_Salvo
             this.cbCumplio = new System.Windows.Forms.ComboBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.dgvPlanMejoramiento = new System.Windows.Forms.DataGridView();
+            this.dgvPM = new System.Windows.Forms.DataGridView();
             this.txtResponsable = new System.Windows.Forms.TextBox();
             this.txtCuando = new System.Windows.Forms.TextBox();
             this.txtDonde = new System.Windows.Forms.TextBox();
@@ -144,20 +149,33 @@ namespace SO_Paz_y_Salvo
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ofdAdjunto = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtPacActual = new System.Windows.Forms.TextBox();
+            this.txtIdActual = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dgvPMCorreos = new System.Windows.Forms.DataGridView();
+            this.btnAddNot = new System.Windows.Forms.Button();
+            this.btnDelNot = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtOidActual = new System.Windows.Forms.TextBox();
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.gbRegSucesos.SuspendLayout();
             this.gbMedicamentos.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanMejoramiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPM)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdjuntos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPMCorreos)).BeginInit();
             this.SuspendLayout();
             // 
             // btGnSalir
@@ -168,14 +186,16 @@ namespace SO_Paz_y_Salvo
             this.btGnSalir.TabIndex = 17;
             this.btGnSalir.Text = "Salir";
             this.btGnSalir.UseVisualStyleBackColor = true;
+            this.btGnSalir.Click += new System.EventHandler(this.btGnSalir_Click);
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.btnFiltro);
+            this.tabPage11.Controls.Add(this.txtReg);
+            this.tabPage11.Controls.Add(this.lbltxtReg);
             this.tabPage11.Controls.Add(this.label16);
-            this.tabPage11.Controls.Add(this.label13);
             this.tabPage11.Controls.Add(this.label8);
             this.tabPage11.Controls.Add(this.txtBuscarPaciente);
-            this.tabPage11.Controls.Add(this.cbUltimosRegistros);
             this.tabPage11.Controls.Add(this.ckbFechas);
             this.tabPage11.Controls.Add(this.dpFecFin);
             this.tabPage11.Controls.Add(this.dpFecIni);
@@ -190,23 +210,40 @@ namespace SO_Paz_y_Salvo
             this.tabPage11.Text = "Relación de Sucesos de Seguridad";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Location = new System.Drawing.Point(673, 48);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(118, 26);
+            this.btnFiltro.TabIndex = 13;
+            this.btnFiltro.Text = "Aplicar Filtro";
+            this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
+            // txtReg
+            // 
+            this.txtReg.Location = new System.Drawing.Point(1143, 52);
+            this.txtReg.Name = "txtReg";
+            this.txtReg.Size = new System.Drawing.Size(68, 22);
+            this.txtReg.TabIndex = 12;
+            // 
+            // lbltxtReg
+            // 
+            this.lbltxtReg.AutoSize = true;
+            this.lbltxtReg.Location = new System.Drawing.Point(1067, 54);
+            this.lbltxtReg.Name = "lbltxtReg";
+            this.lbltxtReg.Size = new System.Drawing.Size(68, 17);
+            this.lbltxtReg.TabIndex = 11;
+            this.lbltxtReg.Text = "Registros";
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(253, 83);
+            this.label16.Location = new System.Drawing.Point(253, 52);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 17);
             this.label16.TabIndex = 10;
             this.label16.Text = "Id Paciente";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(253, 55);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(113, 17);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Ultimos registros";
             // 
             // label8
             // 
@@ -219,30 +256,15 @@ namespace SO_Paz_y_Salvo
             // 
             // txtBuscarPaciente
             // 
-            this.txtBuscarPaciente.Location = new System.Drawing.Point(406, 83);
+            this.txtBuscarPaciente.Location = new System.Drawing.Point(406, 52);
             this.txtBuscarPaciente.Name = "txtBuscarPaciente";
             this.txtBuscarPaciente.Size = new System.Drawing.Size(250, 22);
             this.txtBuscarPaciente.TabIndex = 7;
             // 
-            // cbUltimosRegistros
-            // 
-            this.cbUltimosRegistros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUltimosRegistros.FormattingEnabled = true;
-            this.cbUltimosRegistros.Items.AddRange(new object[] {
-            "Últimos 100 Registros",
-            "Últimos 200 Registros",
-            "Últimos 500 Registros",
-            "Registros del mes actual",
-            "Registros del año actual"});
-            this.cbUltimosRegistros.Location = new System.Drawing.Point(405, 52);
-            this.cbUltimosRegistros.Name = "cbUltimosRegistros";
-            this.cbUltimosRegistros.Size = new System.Drawing.Size(252, 24);
-            this.cbUltimosRegistros.TabIndex = 6;
-            // 
             // ckbFechas
             // 
             this.ckbFechas.AutoSize = true;
-            this.ckbFechas.Location = new System.Drawing.Point(685, 23);
+            this.ckbFechas.Location = new System.Drawing.Point(675, 23);
             this.ckbFechas.Name = "ckbFechas";
             this.ckbFechas.Size = new System.Drawing.Size(125, 21);
             this.ckbFechas.TabIndex = 5;
@@ -282,16 +304,33 @@ namespace SO_Paz_y_Salvo
             this.btRegNuevo.TabIndex = 1;
             this.btRegNuevo.Text = "Nuevo";
             this.btRegNuevo.UseVisualStyleBackColor = true;
+            this.btRegNuevo.Click += new System.EventHandler(this.btRegNuevo_Click);
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.AllowUserToDeleteRows = false;
+            this.dgvDatos.AllowUserToResizeRows = false;
+            this.dgvDatos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(17, 122);
+            this.dgvDatos.Location = new System.Drawing.Point(17, 84);
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.RowHeadersWidth = 51;
+            this.dgvDatos.ReadOnly = true;
+            this.dgvDatos.RowHeadersWidth = 25;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(1315, 504);
-            this.dgvDatos.TabIndex = 0;
+            this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatos.Size = new System.Drawing.Size(1315, 542);
+            this.dgvDatos.TabIndex = 8;
+            this.dgvDatos.Click += new System.EventHandler(this.dgvDatos_Click);
             // 
             // tabControl2
             // 
@@ -306,31 +345,12 @@ namespace SO_Paz_y_Salvo
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(1365, 674);
             this.tabControl2.TabIndex = 16;
+            this.tabControl2.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl2_Selected);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.gbMedicamentos);
-            this.tabPage1.Controls.Add(this.cbMedicamento);
-            this.tabPage1.Controls.Add(this.label22);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.txtAseguradora);
-            this.tabPage1.Controls.Add(this.txtPaciente);
-            this.tabPage1.Controls.Add(this.label36);
-            this.tabPage1.Controls.Add(this.label24);
-            this.tabPage1.Controls.Add(this.dtFecha);
-            this.tabPage1.Controls.Add(this.txtDescripcionSuceso);
-            this.tabPage1.Controls.Add(this.txtEdad);
-            this.tabPage1.Controls.Add(this.txtQuienReporta);
-            this.tabPage1.Controls.Add(this.txtIdPaciente);
-            this.tabPage1.Controls.Add(this.cbCargoRol);
-            this.tabPage1.Controls.Add(this.cbRegionalSede);
-            this.tabPage1.Controls.Add(this.label20);
-            this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.gbRegSucesos);
+            this.tabPage1.Controls.Add(this.btRegSuceso);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -339,30 +359,80 @@ namespace SO_Paz_y_Salvo
             this.tabPage1.Text = "Registro del Suceso";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // gbRegSucesos
+            // 
+            this.gbRegSucesos.Controls.Add(this.txtOut);
+            this.gbRegSucesos.Controls.Add(this.cbAseguradora);
+            this.gbRegSucesos.Controls.Add(this.gbMedicamentos);
+            this.gbRegSucesos.Controls.Add(this.cbMedicamento);
+            this.gbRegSucesos.Controls.Add(this.label22);
+            this.gbRegSucesos.Controls.Add(this.txtNomPac);
+            this.gbRegSucesos.Controls.Add(this.label36);
+            this.gbRegSucesos.Controls.Add(this.label24);
+            this.gbRegSucesos.Controls.Add(this.dtFecha);
+            this.gbRegSucesos.Controls.Add(this.txtDescrip);
+            this.gbRegSucesos.Controls.Add(this.txtEdad);
+            this.gbRegSucesos.Controls.Add(this.txtRepNom);
+            this.gbRegSucesos.Controls.Add(this.txtIdPac);
+            this.gbRegSucesos.Controls.Add(this.cbCargoRol);
+            this.gbRegSucesos.Controls.Add(this.cbRegionalSede);
+            this.gbRegSucesos.Controls.Add(this.label20);
+            this.gbRegSucesos.Controls.Add(this.label15);
+            this.gbRegSucesos.Controls.Add(this.label14);
+            this.gbRegSucesos.Controls.Add(this.label10);
+            this.gbRegSucesos.Controls.Add(this.label7);
+            this.gbRegSucesos.Controls.Add(this.label2);
+            this.gbRegSucesos.Controls.Add(this.label1);
+            this.gbRegSucesos.Location = new System.Drawing.Point(6, 34);
+            this.gbRegSucesos.Name = "gbRegSucesos";
+            this.gbRegSucesos.Size = new System.Drawing.Size(1345, 481);
+            this.gbRegSucesos.TabIndex = 72;
+            this.gbRegSucesos.TabStop = false;
+            // 
+            // txtOut
+            // 
+            this.txtOut.Location = new System.Drawing.Point(1214, 414);
+            this.txtOut.Multiline = true;
+            this.txtOut.Name = "txtOut";
+            this.txtOut.Size = new System.Drawing.Size(57, 47);
+            this.txtOut.TabIndex = 71;
+            this.txtOut.Visible = false;
+            // 
+            // cbAseguradora
+            // 
+            this.cbAseguradora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAseguradora.FormattingEnabled = true;
+            this.cbAseguradora.Location = new System.Drawing.Point(417, 94);
+            this.cbAseguradora.Name = "cbAseguradora";
+            this.cbAseguradora.Size = new System.Drawing.Size(443, 24);
+            this.cbAseguradora.TabIndex = 43;
+            this.cbAseguradora.SelectedIndexChanged += new System.EventHandler(this.cbAseguradora_SelectedIndexChanged);
+            this.cbAseguradora.Leave += new System.EventHandler(this.cbAseguradora_Leave);
+            // 
             // gbMedicamentos
             // 
-            this.gbMedicamentos.Controls.Add(this.dpFechaVenc);
+            this.gbMedicamentos.Controls.Add(this.dpRelFec);
             this.gbMedicamentos.Controls.Add(this.label29);
-            this.gbMedicamentos.Controls.Add(this.txtRegInvima);
+            this.gbMedicamentos.Controls.Add(this.txtRelInv);
             this.gbMedicamentos.Controls.Add(this.label28);
-            this.gbMedicamentos.Controls.Add(this.txtNombreMed);
-            this.gbMedicamentos.Controls.Add(this.txtLote);
+            this.gbMedicamentos.Controls.Add(this.txtRelMed);
+            this.gbMedicamentos.Controls.Add(this.txtRelLot);
             this.gbMedicamentos.Controls.Add(this.label26);
             this.gbMedicamentos.Controls.Add(this.label27);
-            this.gbMedicamentos.Location = new System.Drawing.Point(17, 297);
+            this.gbMedicamentos.Location = new System.Drawing.Point(17, 287);
             this.gbMedicamentos.Name = "gbMedicamentos";
             this.gbMedicamentos.Size = new System.Drawing.Size(1313, 68);
             this.gbMedicamentos.TabIndex = 69;
             this.gbMedicamentos.TabStop = false;
             this.gbMedicamentos.Text = "Dispositivo médico, medicamento o reactivo";
             // 
-            // dpFechaVenc
+            // dpRelFec
             // 
-            this.dpFechaVenc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaVenc.Location = new System.Drawing.Point(1150, 21);
-            this.dpFechaVenc.Name = "dpFechaVenc";
-            this.dpFechaVenc.Size = new System.Drawing.Size(143, 22);
-            this.dpFechaVenc.TabIndex = 69;
+            this.dpRelFec.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpRelFec.Location = new System.Drawing.Point(1150, 21);
+            this.dpRelFec.Name = "dpRelFec";
+            this.dpRelFec.Size = new System.Drawing.Size(143, 22);
+            this.dpRelFec.TabIndex = 50;
             // 
             // label29
             // 
@@ -373,12 +443,12 @@ namespace SO_Paz_y_Salvo
             this.label29.TabIndex = 68;
             this.label29.Text = "F.V.";
             // 
-            // txtRegInvima
+            // txtRelInv
             // 
-            this.txtRegInvima.Location = new System.Drawing.Point(697, 21);
-            this.txtRegInvima.Name = "txtRegInvima";
-            this.txtRegInvima.Size = new System.Drawing.Size(159, 22);
-            this.txtRegInvima.TabIndex = 67;
+            this.txtRelInv.Location = new System.Drawing.Point(697, 21);
+            this.txtRelInv.Name = "txtRelInv";
+            this.txtRelInv.Size = new System.Drawing.Size(159, 22);
+            this.txtRelInv.TabIndex = 48;
             // 
             // label28
             // 
@@ -389,19 +459,19 @@ namespace SO_Paz_y_Salvo
             this.label28.TabIndex = 66;
             this.label28.Text = "Registro INVIMA";
             // 
-            // txtNombreMed
+            // txtRelMed
             // 
-            this.txtNombreMed.Location = new System.Drawing.Point(79, 21);
-            this.txtNombreMed.Name = "txtNombreMed";
-            this.txtNombreMed.Size = new System.Drawing.Size(480, 22);
-            this.txtNombreMed.TabIndex = 62;
+            this.txtRelMed.Location = new System.Drawing.Point(79, 21);
+            this.txtRelMed.Name = "txtRelMed";
+            this.txtRelMed.Size = new System.Drawing.Size(480, 22);
+            this.txtRelMed.TabIndex = 47;
             // 
-            // txtLote
+            // txtRelLot
             // 
-            this.txtLote.Location = new System.Drawing.Point(912, 21);
-            this.txtLote.Name = "txtLote";
-            this.txtLote.Size = new System.Drawing.Size(176, 22);
-            this.txtLote.TabIndex = 65;
+            this.txtRelLot.Location = new System.Drawing.Point(912, 21);
+            this.txtRelLot.Name = "txtRelLot";
+            this.txtRelLot.Size = new System.Drawing.Size(176, 22);
+            this.txtRelLot.TabIndex = 49;
             // 
             // label26
             // 
@@ -425,48 +495,34 @@ namespace SO_Paz_y_Salvo
             // 
             this.cbMedicamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMedicamento.FormattingEnabled = true;
-            this.cbMedicamento.Location = new System.Drawing.Point(541, 267);
+            this.cbMedicamento.Location = new System.Drawing.Point(541, 257);
             this.cbMedicamento.Name = "cbMedicamento";
             this.cbMedicamento.Size = new System.Drawing.Size(107, 24);
-            this.cbMedicamento.TabIndex = 68;
+            this.cbMedicamento.TabIndex = 46;
             this.cbMedicamento.SelectedIndexChanged += new System.EventHandler(this.cbMedicamento_SelectedIndexChanged_1);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(14, 267);
+            this.label22.Location = new System.Drawing.Point(14, 257);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(521, 17);
             this.label22.TabIndex = 67;
             this.label22.Text = "El suceso está relacionado con un dispositivo médico, medicamentos o reactivo? ";
             // 
-            // button1
+            // txtNomPac
             // 
-            this.button1.Location = new System.Drawing.Point(1171, 600);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 35);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Registrar Suceso";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // txtAseguradora
-            // 
-            this.txtAseguradora.Location = new System.Drawing.Point(417, 105);
-            this.txtAseguradora.Name = "txtAseguradora";
-            this.txtAseguradora.Size = new System.Drawing.Size(443, 22);
-            this.txtAseguradora.TabIndex = 44;
-            // 
-            // txtPaciente
-            // 
-            this.txtPaciente.Location = new System.Drawing.Point(17, 105);
-            this.txtPaciente.Name = "txtPaciente";
-            this.txtPaciente.Size = new System.Drawing.Size(394, 22);
-            this.txtPaciente.TabIndex = 43;
+            this.txtNomPac.Location = new System.Drawing.Point(17, 95);
+            this.txtNomPac.Name = "txtNomPac";
+            this.txtNomPac.Size = new System.Drawing.Size(394, 22);
+            this.txtNomPac.TabIndex = 42;
+            this.txtNomPac.TextChanged += new System.EventHandler(this.txtNomPac_TextChanged);
+            this.txtNomPac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomPac_KeyPress);
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(14, 85);
+            this.label36.Location = new System.Drawing.Point(14, 75);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(63, 17);
             this.label36.TabIndex = 42;
@@ -475,7 +531,7 @@ namespace SO_Paz_y_Salvo
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(414, 85);
+            this.label24.Location = new System.Drawing.Point(414, 75);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(90, 17);
             this.label24.TabIndex = 41;
@@ -484,62 +540,67 @@ namespace SO_Paz_y_Salvo
             // dtFecha
             // 
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFecha.Location = new System.Drawing.Point(17, 51);
+            this.dtFecha.Location = new System.Drawing.Point(17, 41);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(143, 22);
-            this.dtFecha.TabIndex = 38;
+            this.dtFecha.TabIndex = 40;
             // 
-            // txtDescripcionSuceso
+            // txtDescrip
             // 
-            this.txtDescripcionSuceso.Location = new System.Drawing.Point(17, 168);
-            this.txtDescripcionSuceso.Multiline = true;
-            this.txtDescripcionSuceso.Name = "txtDescripcionSuceso";
-            this.txtDescripcionSuceso.Size = new System.Drawing.Size(1317, 83);
-            this.txtDescripcionSuceso.TabIndex = 33;
+            this.txtDescrip.Location = new System.Drawing.Point(17, 158);
+            this.txtDescrip.Multiline = true;
+            this.txtDescrip.Name = "txtDescrip";
+            this.txtDescrip.Size = new System.Drawing.Size(1317, 93);
+            this.txtDescrip.TabIndex = 45;
             // 
             // txtEdad
             // 
-            this.txtEdad.Location = new System.Drawing.Point(866, 105);
+            this.txtEdad.Location = new System.Drawing.Point(866, 95);
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(64, 22);
-            this.txtEdad.TabIndex = 31;
+            this.txtEdad.TabIndex = 44;
+            this.txtEdad.TextChanged += new System.EventHandler(this.txtEdad_TextChanged);
+            this.txtEdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdad_KeyPress);
             // 
-            // txtQuienReporta
+            // txtRepNom
             // 
-            this.txtQuienReporta.Location = new System.Drawing.Point(325, 395);
-            this.txtQuienReporta.Name = "txtQuienReporta";
-            this.txtQuienReporta.Size = new System.Drawing.Size(394, 22);
-            this.txtQuienReporta.TabIndex = 30;
+            this.txtRepNom.Location = new System.Drawing.Point(325, 385);
+            this.txtRepNom.Name = "txtRepNom";
+            this.txtRepNom.Size = new System.Drawing.Size(394, 22);
+            this.txtRepNom.TabIndex = 52;
+            this.txtRepNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRepNom_KeyPress);
             // 
-            // txtIdPaciente
+            // txtIdPac
             // 
-            this.txtIdPaciente.Location = new System.Drawing.Point(166, 51);
-            this.txtIdPaciente.Name = "txtIdPaciente";
-            this.txtIdPaciente.Size = new System.Drawing.Size(171, 22);
-            this.txtIdPaciente.TabIndex = 29;
+            this.txtIdPac.Location = new System.Drawing.Point(166, 41);
+            this.txtIdPac.Name = "txtIdPac";
+            this.txtIdPac.Size = new System.Drawing.Size(171, 22);
+            this.txtIdPac.TabIndex = 41;
+            this.txtIdPac.TextChanged += new System.EventHandler(this.txtIdPac_TextChanged);
+            this.txtIdPac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdPac_KeyPress);
             // 
             // cbCargoRol
             // 
             this.cbCargoRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCargoRol.FormattingEnabled = true;
-            this.cbCargoRol.Location = new System.Drawing.Point(18, 393);
+            this.cbCargoRol.Location = new System.Drawing.Point(18, 383);
             this.cbCargoRol.Name = "cbCargoRol";
             this.cbCargoRol.Size = new System.Drawing.Size(301, 24);
-            this.cbCargoRol.TabIndex = 28;
+            this.cbCargoRol.TabIndex = 51;
             // 
             // cbRegionalSede
             // 
             this.cbRegionalSede.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRegionalSede.FormattingEnabled = true;
-            this.cbRegionalSede.Location = new System.Drawing.Point(725, 395);
+            this.cbRegionalSede.Location = new System.Drawing.Point(725, 385);
             this.cbRegionalSede.Name = "cbRegionalSede";
             this.cbRegionalSede.Size = new System.Drawing.Size(279, 24);
-            this.cbRegionalSede.TabIndex = 23;
+            this.cbRegionalSede.TabIndex = 53;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 373);
+            this.label20.Location = new System.Drawing.Point(15, 363);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(184, 17);
             this.label20.TabIndex = 19;
@@ -548,7 +609,7 @@ namespace SO_Paz_y_Salvo
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(863, 85);
+            this.label15.Location = new System.Drawing.Point(863, 75);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 17);
             this.label15.TabIndex = 14;
@@ -557,7 +618,7 @@ namespace SO_Paz_y_Salvo
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(14, 148);
+            this.label14.Location = new System.Drawing.Point(14, 138);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(154, 17);
             this.label14.TabIndex = 13;
@@ -566,7 +627,7 @@ namespace SO_Paz_y_Salvo
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(322, 375);
+            this.label10.Location = new System.Drawing.Point(322, 365);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(101, 17);
             this.label10.TabIndex = 9;
@@ -575,7 +636,7 @@ namespace SO_Paz_y_Salvo
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(722, 375);
+            this.label7.Location = new System.Drawing.Point(722, 365);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 17);
             this.label7.TabIndex = 6;
@@ -584,7 +645,7 @@ namespace SO_Paz_y_Salvo
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 31);
+            this.label2.Location = new System.Drawing.Point(14, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 1;
@@ -593,14 +654,29 @@ namespace SO_Paz_y_Salvo
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(163, 31);
+            this.label1.Location = new System.Drawing.Point(163, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Identificación Paciente";
             // 
+            // btRegSuceso
+            // 
+            this.btRegSuceso.Enabled = false;
+            this.btRegSuceso.Location = new System.Drawing.Point(1171, 600);
+            this.btRegSuceso.Name = "btRegSuceso";
+            this.btRegSuceso.Size = new System.Drawing.Size(165, 35);
+            this.btRegSuceso.TabIndex = 54;
+            this.btRegSuceso.Text = "Registrar Suceso";
+            this.btRegSuceso.UseVisualStyleBackColor = true;
+            this.btRegSuceso.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.btnDelNot);
+            this.tabPage2.Controls.Add(this.btnAddNot);
+            this.tabPage2.Controls.Add(this.dgvPMCorreos);
             this.tabPage2.Controls.Add(this.label41);
             this.tabPage2.Controls.Add(this.cbCausaRaiz);
             this.tabPage2.Controls.Add(this.label21);
@@ -656,7 +732,7 @@ namespace SO_Paz_y_Salvo
             this.cbNotificar.FormattingEnabled = true;
             this.cbNotificar.Location = new System.Drawing.Point(702, 459);
             this.cbNotificar.Name = "cbNotificar";
-            this.cbNotificar.Size = new System.Drawing.Size(335, 24);
+            this.cbNotificar.Size = new System.Drawing.Size(442, 24);
             this.cbNotificar.TabIndex = 57;
             // 
             // label19
@@ -674,7 +750,7 @@ namespace SO_Paz_y_Salvo
             this.groupBox1.Controls.Add(this.cbCumplio);
             this.groupBox1.Controls.Add(this.btnAdicionar);
             this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.dgvPlanMejoramiento);
+            this.groupBox1.Controls.Add(this.dgvPM);
             this.groupBox1.Controls.Add(this.txtResponsable);
             this.groupBox1.Controls.Add(this.txtCuando);
             this.groupBox1.Controls.Add(this.txtDonde);
@@ -720,8 +796,9 @@ namespace SO_Paz_y_Salvo
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 33);
             this.btnAdicionar.TabIndex = 59;
-            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.Text = "Registrar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnEliminar
             // 
@@ -732,15 +809,21 @@ namespace SO_Paz_y_Salvo
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // dgvPlanMejoramiento
+            // dgvPM
             // 
-            this.dgvPlanMejoramiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlanMejoramiento.Location = new System.Drawing.Point(15, 207);
-            this.dgvPlanMejoramiento.Name = "dgvPlanMejoramiento";
-            this.dgvPlanMejoramiento.RowHeadersWidth = 51;
-            this.dgvPlanMejoramiento.RowTemplate.Height = 24;
-            this.dgvPlanMejoramiento.Size = new System.Drawing.Size(1280, 135);
-            this.dgvPlanMejoramiento.TabIndex = 57;
+            this.dgvPM.AllowUserToAddRows = false;
+            this.dgvPM.AllowUserToDeleteRows = false;
+            this.dgvPM.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvPM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPM.ColumnHeadersVisible = false;
+            this.dgvPM.Location = new System.Drawing.Point(15, 207);
+            this.dgvPM.Name = "dgvPM";
+            this.dgvPM.RowHeadersWidth = 51;
+            this.dgvPM.RowTemplate.Height = 24;
+            this.dgvPM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPM.Size = new System.Drawing.Size(1280, 135);
+            this.dgvPM.TabIndex = 57;
             // 
             // txtResponsable
             // 
@@ -996,7 +1079,7 @@ namespace SO_Paz_y_Salvo
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::SO_Paz_y_Salvo.Properties.Resources.Londres2;
+            this.pictureBox2.Image = global::SO_Eventos.Properties.Resources.Londres2;
             this.pictureBox2.InitialImage = null;
             this.pictureBox2.Location = new System.Drawing.Point(3, 7);
             this.pictureBox2.Name = "pictureBox2";
@@ -1261,11 +1344,123 @@ namespace SO_Paz_y_Salvo
             // 
             this.ofdAdjunto.FileName = "openFileDialog1";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtOidActual);
+            this.groupBox2.Controls.Add(this.txtPacActual);
+            this.groupBox2.Controls.Add(this.txtIdActual);
+            this.groupBox2.Controls.Add(this.label42);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Location = new System.Drawing.Point(803, 17);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(464, 62);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            // 
+            // txtPacActual
+            // 
+            this.txtPacActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPacActual.Location = new System.Drawing.Point(96, 37);
+            this.txtPacActual.Name = "txtPacActual";
+            this.txtPacActual.ReadOnly = true;
+            this.txtPacActual.Size = new System.Drawing.Size(362, 15);
+            this.txtPacActual.TabIndex = 3;
+            // 
+            // txtIdActual
+            // 
+            this.txtIdActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIdActual.Location = new System.Drawing.Point(96, 14);
+            this.txtIdActual.Name = "txtIdActual";
+            this.txtIdActual.ReadOnly = true;
+            this.txtIdActual.Size = new System.Drawing.Size(163, 15);
+            this.txtIdActual.TabIndex = 2;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(30, 37);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(63, 17);
+            this.label42.TabIndex = 1;
+            this.label42.Text = "Paciente";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(72, 14);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(19, 17);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Id";
+            // 
+            // dgvPMCorreos
+            // 
+            this.dgvPMCorreos.AllowUserToAddRows = false;
+            this.dgvPMCorreos.AllowUserToDeleteRows = false;
+            this.dgvPMCorreos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPMCorreos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvPMCorreos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPMCorreos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPMCorreos.ColumnHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPMCorreos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPMCorreos.Location = new System.Drawing.Point(702, 489);
+            this.dgvPMCorreos.Name = "dgvPMCorreos";
+            this.dgvPMCorreos.RowHeadersVisible = false;
+            this.dgvPMCorreos.RowHeadersWidth = 51;
+            this.dgvPMCorreos.RowTemplate.Height = 24;
+            this.dgvPMCorreos.Size = new System.Drawing.Size(442, 121);
+            this.dgvPMCorreos.TabIndex = 61;
+            // 
+            // btnAddNot
+            // 
+            this.btnAddNot.Location = new System.Drawing.Point(1150, 458);
+            this.btnAddNot.Name = "btnAddNot";
+            this.btnAddNot.Size = new System.Drawing.Size(35, 24);
+            this.btnAddNot.TabIndex = 62;
+            this.btnAddNot.Text = "+";
+            this.btnAddNot.UseVisualStyleBackColor = true;
+            this.btnAddNot.Click += new System.EventHandler(this.btnAddNot_Click);
+            // 
+            // btnDelNot
+            // 
+            this.btnDelNot.Location = new System.Drawing.Point(1150, 488);
+            this.btnDelNot.Name = "btnDelNot";
+            this.btnDelNot.Size = new System.Drawing.Size(35, 24);
+            this.btnDelNot.TabIndex = 63;
+            this.btnDelNot.Text = "-";
+            this.btnDelNot.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1202, 459);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 36);
+            this.button1.TabIndex = 64;
+            this.button1.Text = "Registrar Análisis";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txtOidActual
+            // 
+            this.txtOidActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOidActual.Location = new System.Drawing.Point(375, 16);
+            this.txtOidActual.Name = "txtOidActual";
+            this.txtOidActual.ReadOnly = true;
+            this.txtOidActual.Size = new System.Drawing.Size(77, 15);
+            this.txtOidActual.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1389, 771);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btGnSalir);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.pictureBox1);
@@ -1278,14 +1473,15 @@ namespace SO_Paz_y_Salvo
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.gbRegSucesos.ResumeLayout(false);
+            this.gbRegSucesos.PerformLayout();
             this.gbMedicamentos.ResumeLayout(false);
             this.gbMedicamentos.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanMejoramiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPM)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1294,6 +1490,9 @@ namespace SO_Paz_y_Salvo
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdjuntos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPMCorreos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1308,40 +1507,24 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DateTimePicker dtFecha;
-        private System.Windows.Forms.TextBox txtDescripcionSuceso;
-        private System.Windows.Forms.TextBox txtEdad;
-        private System.Windows.Forms.TextBox txtQuienReporta;
-        private System.Windows.Forms.TextBox txtIdPaciente;
-        private System.Windows.Forms.ComboBox cbCargoRol;
-        private System.Windows.Forms.ComboBox cbRegionalSede;
         private System.Windows.Forms.ComboBox cbTipoReporte;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.ComboBox cbRolImplicado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbComponente;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBuscarPaciente;
-        private System.Windows.Forms.ComboBox cbUltimosRegistros;
         private System.Windows.Forms.CheckBox ckbFechas;
         private System.Windows.Forms.DateTimePicker dpFecFin;
         private System.Windows.Forms.DateTimePicker dpFecIni;
-        private System.Windows.Forms.TextBox txtAseguradora;
-        private System.Windows.Forms.TextBox txtPaciente;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btRegSuceso;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtQue;
@@ -1352,7 +1535,7 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.ComboBox cbCumplio;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.DataGridView dgvPlanMejoramiento;
+        private System.Windows.Forms.DataGridView dgvPM;
         private System.Windows.Forms.TextBox txtResponsable;
         private System.Windows.Forms.TextBox txtCuando;
         private System.Windows.Forms.TextBox txtDonde;
@@ -1400,19 +1583,48 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.DataGridView dgvAdjuntos;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.OpenFileDialog ofdAdjunto;
-        private System.Windows.Forms.GroupBox gbMedicamentos;
-        private System.Windows.Forms.DateTimePicker dpFechaVenc;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox txtRegInvima;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox txtNombreMed;
-        private System.Windows.Forms.TextBox txtLote;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox cbMedicamento;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.ComboBox cbCausaRaiz;
+        public System.Windows.Forms.TextBox txtOut;
+        private System.Windows.Forms.TextBox txtReg;
+        private System.Windows.Forms.Label lbltxtReg;
+        private System.Windows.Forms.Button btnFiltro;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtPacActual;
+        private System.Windows.Forms.TextBox txtIdActual;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox gbRegSucesos;
+        private System.Windows.Forms.ComboBox cbAseguradora;
+        private System.Windows.Forms.GroupBox gbMedicamentos;
+        private System.Windows.Forms.DateTimePicker dpRelFec;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtRelInv;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtRelMed;
+        private System.Windows.Forms.TextBox txtRelLot;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox cbMedicamento;
+        private System.Windows.Forms.TextBox txtNomPac;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DateTimePicker dtFecha;
+        private System.Windows.Forms.TextBox txtDescrip;
+        private System.Windows.Forms.TextBox txtEdad;
+        private System.Windows.Forms.TextBox txtRepNom;
+        private System.Windows.Forms.TextBox txtIdPac;
+        private System.Windows.Forms.ComboBox cbCargoRol;
+        private System.Windows.Forms.ComboBox cbRegionalSede;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelNot;
+        private System.Windows.Forms.Button btnAddNot;
+        private System.Windows.Forms.DataGridView dgvPMCorreos;
+        private System.Windows.Forms.TextBox txtOidActual;
     }
 }
 

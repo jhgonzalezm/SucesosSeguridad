@@ -5,3 +5,10 @@ D:\Google Drive\AppNetC#\SONoConformidades\CapaDatos\obj\Debug\CapaDatos.csproj.
 D:\Google Drive\AppNetC#\SONoConformidades\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
 D:\Google Drive\AppNetC#\SONoConformidades\CapaDatos\obj\Debug\CapaDatos.dll
 D:\Google Drive\AppNetC#\SONoConformidades\CapaDatos\obj\Debug\CapaDatos.pdb
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\bin\Debug\CapaDatos.dll.config
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\bin\Debug\CapaDatos.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\bin\Debug\CapaDatos.pdb
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\obj\Debug\CapaDatos.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\obj\Debug\CapaDatos.pdb
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache

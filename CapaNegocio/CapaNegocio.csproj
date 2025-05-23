@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="CN_Productos.cs" />
+    <Compile Include="CN_Registro.cs" />
     <Compile Include="CN_Terminal.cs" />
     <Compile Include="NEnumeradores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
