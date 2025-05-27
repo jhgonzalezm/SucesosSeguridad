@@ -116,6 +116,7 @@ namespace SO_Paz_y_Salvo
             dgvPMCorreos.DataSource = objeto.MostrarRegPMCorreos(int.Parse(txtOidActual.Text));
             dgvPMCorreos.Columns["OID"].Visible = false;
             dgvPMCorreos.Columns["PMCORREO"].Visible = false;
+            dgvPMCorreos.Columns["CECORREO"].Visible = false;
         }
         private void LimpiarCamposRegistroSuceso()
         {
@@ -160,20 +161,20 @@ namespace SO_Paz_y_Salvo
         private void CargarCombos()
         {
             combosCargados = false;
-            Cargar_Combos(cbCumplio, "sp_02CargarEnumeradores", 16);
-            Cargar_Combos(cbVerificado, "sp_02CargarEnumeradores", 16);
-            Cargar_Combos(cbRegionalSede, "sp_02CargarEnumeradores", 3);
-            Cargar_Combos(cbTipoReporte, "sp_02CargarEnumeradores", 18);
-            Cargar_Combos(cbMedicamento, "sp_02CargarEnumeradores", 16);
-            Cargar_Combos(cbComponente, "sp_02CargarEnumeradores", 19);
-            Cargar_Combos(cbCargoRol, "sp_02CargarEnumeradores", 8);
-            Cargar_Combos(cbRolImplicado, "sp_02CargarEnumeradores", 11);
-            Cargar_Combos(cbEstado, "sp_02CargarEnumeradores", 17);
-            Cargar_Combos(cbAseguradora, "sp_02CargarEnumeradores", 23);
-            Cargar_Combos(cbNotificar, "sp_02CargarEnumeradores", 27);
-            //Cargar_Combos(cbEstado, "sp_02CargarEnumeradores", 12);
-            //Cargar_Combos(cbEficaciaTrat, "sp_02CargarEnumeradores", 13);
-            //Cargar_Combos(cbCausaPpalCalidad, "sp_02CargarEnumeradores", 14);
+            Cargar_Combos(cbCumplio, "sp_GENMENUME", 16);
+            Cargar_Combos(cbVerificado, "sp_GENMENUME", 16);
+            Cargar_Combos(cbRegionalSede, "sp_GENMENUME", 3);
+            Cargar_Combos(cbTipoReporte, "sp_GENMENUME", 18);
+            Cargar_Combos(cbMedicamento, "sp_GENMENUME", 16);
+            Cargar_Combos(cbComponente, "sp_GENMENUME", 19);
+            Cargar_Combos(cbCargoRol, "sp_GENMENUME", 8);
+            Cargar_Combos(cbRolImplicado, "sp_GENMENUME", 11);
+            Cargar_Combos(cbEstado, "sp_GENMENUME", 17);
+            Cargar_Combos(cbAseguradora, "sp_GENMENUME", 23);
+            Cargar_Combos(cbNotificar, "sp_GENMENUME", 27);
+            Cargar_Combos(cbCausaRaiz, "sp_GENMENUME", 99);
+            Cargar_Combos(cbAcciones, "sp_GENMENUME", 99);
+
             combosCargados = true;
 
 
@@ -225,7 +226,7 @@ namespace SO_Paz_y_Salvo
             {
                 //string opCombo = (cbComponente.SelectedValue.ToString());
                 //txtQue.Text = opCombo;
-                Cargar_Combos(cbCausaRaiz, "sp_02CargarEnumeradores", int.Parse((cbComponente.SelectedValue.ToString())));
+                Cargar_Combos(cbCausaRaiz, "sp_GENMENUME", int.Parse((cbComponente.SelectedValue.ToString())));
             }
 
 
@@ -311,7 +312,7 @@ namespace SO_Paz_y_Salvo
             LimpiarCamposRegistroSuceso();
             txtIdActual.Text = string.Empty;
             txtPacActual.Text = string.Empty;
-            tabControl2.SelectTab("tabPage1");
+            EAP.SelectTab("tabPage1");
             gbRegSucesos.Enabled = true;
             btRegSuceso.Enabled = true;
         }
@@ -344,6 +345,8 @@ namespace SO_Paz_y_Salvo
                 txtIdActual.Text = dgvDatos.CurrentRow.Cells["ID"].Value.ToString();
                 txtPacActual.Text = dgvDatos.CurrentRow.Cells["NOMBRE_PACIENTE"].Value.ToString();
                 txtOidActual.Text = dgvDatos.CurrentRow.Cells["OID"].Value.ToString();
+                txtIdrActual.Text = dgvDatos.CurrentRow.Cells["IDR"].Value.ToString();
+                txtDescripActual.Text = dgvDatos.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
 
                 CargarGrillaPM();
                 CargarGrillaPMCorreos();
@@ -488,7 +491,186 @@ namespace SO_Paz_y_Salvo
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error: Es posible que el correo ya este adicionado! ");
+                        MessageBox.Show("Error: Es posible que el correo ya este adicionado, si no es así, consulte con el área de Sistemas! "); 
+                        //+ex);
+                    }
+                }
+                //EDITAR
+                //if (Editar == true)
+                //{
+
+                //    try
+                //    {
+                //        objetoCN.EditarReg(dtFecha.Value, cbMunicipio.SelectedItem.ToString(), txtId.Text, txtReporta.Text, txtEvento.Text, oid);
+                //        //MessageBox.Show("Editado correctamente");
+                //        MostrarProdctos();
+                //        limpiarForm();
+                //        Editar = false;
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        MessageBox.Show("No se pudo editar los datos por: " + ex);
+                //    }
+                //}
+            }
+        }
+
+        private void btnDelNot_Click(object sender, EventArgs e)
+        {
+
+            //Parámetros correo de origen
+            string wHost = "smtp.gmail.com";
+            int wPort = 587;
+            string wEmail = "hsvp.facele.1@gmail.com";
+            string wPassword = "tpmhjhnhovwoqdos";
+
+            //Recorrer Grilla de correos
+            string wAsunto = @"ID Suceso de Seguridad : "+ txtIdrActual.Text+"   Paciente : "+txtPacActual.Text;
+
+            string wMensaje = @" <!DOCTYPE html>
+                <html lang='en'>
+                <head>
+                <meta charset = 'UTF-8'>
+                <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
+                <style>
+                    h3 {
+                        padding: 0;
+                        margin: 0;
+                    }
+                    table {
+                        border: 2px solid black;
+                        border - collapse: collapse;
+                        width: 60 %;
+                        margin: 20px auto;
+                    }
+                    th, td {
+                        border: 1px solid #333; 
+                        padding: 8px 12px;
+                    }
+                    th {
+                        background - color: #f2f2f2;
+                }
+                </style>
+                <title> Document </title>
+                </head>
+                                                <body>
+                <body style = 'font-family: Arial; color: #333;'>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td> ID Evento </td>
+                            <td><h3> " + txtIdrActual.Text + " </h3></td>"+
+                        "</tr>" +
+                        "<tr>"+
+                            "<td> ID Paciente </td>"+
+                            "<td><h3> " + txtIdActual.Text + " </h3></td>"+
+                        "</tr>" +
+                        "<tr>" +
+                            "<td> Nombre Paciente </td>"+
+                            "<td><h3> " + txtPacActual.Text + " </td>"+
+                        "</tr>" +
+                        "<tr>" +
+                             "<td> Descripción Evento </td>"+
+                             "<td><h3> " + txtDescripActual.Text + " </td>"+
+                        "</tr>" +
+                     "</tbody>"+
+                    "</table>" +
+             "</body>"+
+             "</html>";
+
+            foreach (DataGridViewRow row in dgvPMCorreos.Rows)
+            {
+                // Omitir la fila nueva (en modo edición)
+                if (row.IsNewRow) continue;
+                var wCorreo = row.Cells["CECORREO"].Value.ToString();
+                enviarCorreosNotificacion(wHost, wPort, wEmail, wPassword, wAsunto,wMensaje,wCorreo);
+               // MessageBox.Show("Correo: " + wCorreo);
+            }
+        }
+        private void enviarCorreosNotificacion(string ceHost, int cePort, string ceEmail, string cePassword, string asunto, string mensaje, string correo)
+        {
+            CN_Correos objetoCNCorreoS = new CN_Correos();
+            objetoCNCorreoS.enviarCorreos(ceHost, cePort, ceEmail, cePassword, asunto, mensaje, correo);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //VALIDAR CAMPOS
+            if (int.Parse(cbTipoReporte.SelectedValue.ToString())==0 || int.Parse(cbComponente.SelectedValue.ToString()) == 0 || int.Parse(cbCausaRaiz.SelectedValue.ToString()) == 0 || int.Parse(cbRolImplicado.SelectedValue.ToString()) == 0 || int.Parse(cbEstado.SelectedValue.ToString()) == 0)
+            {
+                MessageBox.Show("Datos incompletos. Revisar!");
+            }
+            else
+            {
+                //UPDATE
+                if (Editar == false)
+                {
+
+                    try
+                    {
+                        objetoCN.UpdateRegAnalisis(int.Parse(txtOidActual.Text), int.Parse(cbTipoReporte.SelectedValue.ToString()),
+                            int.Parse(cbComponente.SelectedValue.ToString()),
+                            int.Parse(cbCausaRaiz.SelectedValue.ToString()),
+                            int.Parse(cbRolImplicado.SelectedValue.ToString()),
+                            int.Parse(cbEstado.SelectedValue.ToString()));
+
+                        MessageBox.Show("Analisis Registrado");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Datos NO Registrados!! : " + ex);
+                    }
+                }
+                //EDITAR
+                //if (Editar == true)
+                //{
+
+                //    try
+                //    {
+                //        objetoCN.EditarReg(dtFecha.Value, cbMunicipio.SelectedItem.ToString(), txtId.Text, txtReporta.Text, txtEvento.Text, oid);
+                //        //MessageBox.Show("Editado correctamente");
+                //        MostrarProdctos();
+                //        limpiarForm();
+                //        Editar = false;
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        MessageBox.Show("No se pudo editar los datos por: " + ex);
+                //    }
+                //}
+            }
+        }
+
+        private void btnRegProtocolo_Click(object sender, EventArgs e)
+        {
+            //VALIDAR CAMPOS
+            if (txtPLPaciente.Text.Length < 5)
+            {
+                MessageBox.Show("Datos incompletos. Revisar!");
+            }
+            else
+            {
+                //UPDATE
+                if (Editar == false)
+                {
+
+                    try
+                    {
+                        objetoCN.UpdateRegProtocolo(int.Parse(txtOidActual.Text), 
+                            txtPLPaciente.Text,
+                            txtPLTarea.Text,
+                            txtPLIndividuo.Text,
+                            txtPLEquipo.Text,
+                            txtPLAmbiente.Text,
+                            txtPLOrganizacion.Text,
+                            txtPLContexto.Text)
+                            ;
+
+                        MessageBox.Show("Analisis Registrado");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Datos NO Registrados!! : " + ex);
                     }
                 }
                 //EDITAR

@@ -71,5 +71,17 @@ namespace CapaNegocio
             objetoCD.Eliminar(Convert.ToInt32(oid));
         }
 
+        public void UpdateRegAnalisis(int oid, int tipoReporte, int componente, int causaRaiz, int rolImplicado, int estado)
+        {
+
+            objetoCD.updateRegAnalisis(oid,  tipoReporte, componente,  causaRaiz,  rolImplicado,  estado);
+        }
+
+        public void UpdateRegProtocolo(int oid, string paciente, string tarea, string individuo, string equipo, string ambiente, string organizacion, string contexto)
+        {
+
+            objetoCD.updateRegProtocolo(oid, paciente,  tarea,  individuo,  equipo,  ambiente,  organizacion,  contexto);
+        }
+
     }
 }

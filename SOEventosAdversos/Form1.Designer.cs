@@ -29,9 +29,9 @@ namespace SO_Paz_y_Salvo
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btGnSalir = new System.Windows.Forms.Button();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.btnFiltro = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@ namespace SO_Paz_y_Salvo
             this.btRegImp = new System.Windows.Forms.Button();
             this.btRegNuevo = new System.Windows.Forms.Button();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.EAP = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbRegSucesos = new System.Windows.Forms.GroupBox();
             this.txtOut = new System.Windows.Forms.TextBox();
@@ -81,6 +81,10 @@ namespace SO_Paz_y_Salvo
             this.label1 = new System.Windows.Forms.Label();
             this.btRegSuceso = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnDelNot = new System.Windows.Forms.Button();
+            this.btnAddNot = new System.Windows.Forms.Button();
+            this.dgvPMCorreos = new System.Windows.Forms.DataGridView();
             this.label41 = new System.Windows.Forms.Label();
             this.cbCausaRaiz = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -117,7 +121,7 @@ namespace SO_Paz_y_Salvo
             this.txtPLContexto = new System.Windows.Forms.TextBox();
             this.txtPLOrganizacion = new System.Windows.Forms.TextBox();
             this.txtPLAmbiente = new System.Windows.Forms.TextBox();
-            this.txtPLEQuipo = new System.Windows.Forms.TextBox();
+            this.txtPLEquipo = new System.Windows.Forms.TextBox();
             this.txtPLIndividuo = new System.Windows.Forms.TextBox();
             this.txtPLTarea = new System.Windows.Forms.TextBox();
             this.txtPLPaciente = new System.Windows.Forms.TextBox();
@@ -150,22 +154,26 @@ namespace SO_Paz_y_Salvo
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ofdAdjunto = new System.Windows.Forms.OpenFileDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtIdrActual = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtOidActual = new System.Windows.Forms.TextBox();
             this.txtPacActual = new System.Windows.Forms.TextBox();
             this.txtIdActual = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.dgvPMCorreos = new System.Windows.Forms.DataGridView();
-            this.btnAddNot = new System.Windows.Forms.Button();
-            this.btnDelNot = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtOidActual = new System.Windows.Forms.TextBox();
+            this.txtDescripActual = new System.Windows.Forms.TextBox();
+            this.btnRegProtocolo = new System.Windows.Forms.Button();
+            this.btnRegProtocolo2 = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.stId = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
-            this.tabControl2.SuspendLayout();
+            this.EAP.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbRegSucesos.SuspendLayout();
             this.gbMedicamentos.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPMCorreos)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPM)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -175,7 +183,7 @@ namespace SO_Paz_y_Salvo
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdjuntos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPMCorreos)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btGnSalir
@@ -313,18 +321,19 @@ namespace SO_Paz_y_Salvo
             this.dgvDatos.AllowUserToResizeRows = false;
             this.dgvDatos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(17, 84);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
+            this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowHeadersWidth = 25;
             this.dgvDatos.RowTemplate.Height = 24;
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -332,20 +341,20 @@ namespace SO_Paz_y_Salvo
             this.dgvDatos.TabIndex = 8;
             this.dgvDatos.Click += new System.EventHandler(this.dgvDatos_Click);
             // 
-            // tabControl2
+            // EAP
             // 
-            this.tabControl2.Controls.Add(this.tabPage11);
-            this.tabControl2.Controls.Add(this.tabPage1);
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Controls.Add(this.tabPage3);
-            this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Location = new System.Drawing.Point(12, 85);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1365, 674);
-            this.tabControl2.TabIndex = 16;
-            this.tabControl2.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl2_Selected);
+            this.EAP.Controls.Add(this.tabPage11);
+            this.EAP.Controls.Add(this.tabPage1);
+            this.EAP.Controls.Add(this.tabPage2);
+            this.EAP.Controls.Add(this.tabPage3);
+            this.EAP.Controls.Add(this.tabPage4);
+            this.EAP.Controls.Add(this.tabPage5);
+            this.EAP.Location = new System.Drawing.Point(12, 85);
+            this.EAP.Name = "EAP";
+            this.EAP.SelectedIndex = 0;
+            this.EAP.Size = new System.Drawing.Size(1365, 674);
+            this.EAP.TabIndex = 16;
+            this.EAP.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl2_Selected);
             // 
             // tabPage1
             // 
@@ -699,6 +708,61 @@ namespace SO_Paz_y_Salvo
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1202, 593);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 36);
+            this.button1.TabIndex = 64;
+            this.button1.Text = "Registrar Análisis";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnDelNot
+            // 
+            this.btnDelNot.Location = new System.Drawing.Point(1150, 488);
+            this.btnDelNot.Name = "btnDelNot";
+            this.btnDelNot.Size = new System.Drawing.Size(35, 24);
+            this.btnDelNot.TabIndex = 63;
+            this.btnDelNot.Text = "-";
+            this.btnDelNot.UseVisualStyleBackColor = true;
+            this.btnDelNot.Click += new System.EventHandler(this.btnDelNot_Click);
+            // 
+            // btnAddNot
+            // 
+            this.btnAddNot.Location = new System.Drawing.Point(1150, 458);
+            this.btnAddNot.Name = "btnAddNot";
+            this.btnAddNot.Size = new System.Drawing.Size(35, 24);
+            this.btnAddNot.TabIndex = 62;
+            this.btnAddNot.Text = "+";
+            this.btnAddNot.UseVisualStyleBackColor = true;
+            this.btnAddNot.Click += new System.EventHandler(this.btnAddNot_Click);
+            // 
+            // dgvPMCorreos
+            // 
+            this.dgvPMCorreos.AllowUserToAddRows = false;
+            this.dgvPMCorreos.AllowUserToDeleteRows = false;
+            this.dgvPMCorreos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPMCorreos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvPMCorreos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPMCorreos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPMCorreos.ColumnHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPMCorreos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPMCorreos.Location = new System.Drawing.Point(702, 489);
+            this.dgvPMCorreos.Name = "dgvPMCorreos";
+            this.dgvPMCorreos.RowHeadersVisible = false;
+            this.dgvPMCorreos.RowHeadersWidth = 51;
+            this.dgvPMCorreos.RowTemplate.Height = 24;
+            this.dgvPMCorreos.Size = new System.Drawing.Size(442, 121);
+            this.dgvPMCorreos.TabIndex = 61;
+            // 
             // label41
             // 
             this.label41.AutoSize = true;
@@ -816,9 +880,9 @@ namespace SO_Paz_y_Salvo
             this.dgvPM.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvPM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPM.ColumnHeadersVisible = false;
             this.dgvPM.Location = new System.Drawing.Point(15, 207);
             this.dgvPM.Name = "dgvPM";
+            this.dgvPM.RowHeadersVisible = false;
             this.dgvPM.RowHeadersWidth = 51;
             this.dgvPM.RowTemplate.Height = 24;
             this.dgvPM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1006,10 +1070,11 @@ namespace SO_Paz_y_Salvo
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnRegProtocolo);
             this.tabPage3.Controls.Add(this.txtPLContexto);
             this.tabPage3.Controls.Add(this.txtPLOrganizacion);
             this.tabPage3.Controls.Add(this.txtPLAmbiente);
-            this.tabPage3.Controls.Add(this.txtPLEQuipo);
+            this.tabPage3.Controls.Add(this.txtPLEquipo);
             this.tabPage3.Controls.Add(this.txtPLIndividuo);
             this.tabPage3.Controls.Add(this.txtPLTarea);
             this.tabPage3.Controls.Add(this.txtPLPaciente);
@@ -1045,13 +1110,13 @@ namespace SO_Paz_y_Salvo
             this.txtPLAmbiente.Size = new System.Drawing.Size(773, 89);
             this.txtPLAmbiente.TabIndex = 5;
             // 
-            // txtPLEQuipo
+            // txtPLEquipo
             // 
-            this.txtPLEQuipo.Location = new System.Drawing.Point(573, 192);
-            this.txtPLEQuipo.Multiline = true;
-            this.txtPLEQuipo.Name = "txtPLEQuipo";
-            this.txtPLEQuipo.Size = new System.Drawing.Size(773, 64);
-            this.txtPLEQuipo.TabIndex = 4;
+            this.txtPLEquipo.Location = new System.Drawing.Point(573, 192);
+            this.txtPLEquipo.Multiline = true;
+            this.txtPLEquipo.Name = "txtPLEquipo";
+            this.txtPLEquipo.Size = new System.Drawing.Size(773, 64);
+            this.txtPLEquipo.TabIndex = 4;
             // 
             // txtPLIndividuo
             // 
@@ -1090,6 +1155,7 @@ namespace SO_Paz_y_Salvo
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnRegProtocolo2);
             this.tabPage4.Controls.Add(this.txtPL2Lecciones);
             this.tabPage4.Controls.Add(this.label40);
             this.tabPage4.Controls.Add(this.txtPL2Comunicacion);
@@ -1119,16 +1185,16 @@ namespace SO_Paz_y_Salvo
             // 
             // txtPL2Lecciones
             // 
-            this.txtPL2Lecciones.Location = new System.Drawing.Point(17, 565);
+            this.txtPL2Lecciones.Location = new System.Drawing.Point(17, 535);
             this.txtPL2Lecciones.Multiline = true;
             this.txtPL2Lecciones.Name = "txtPL2Lecciones";
-            this.txtPL2Lecciones.Size = new System.Drawing.Size(1324, 51);
+            this.txtPL2Lecciones.Size = new System.Drawing.Size(1324, 50);
             this.txtPL2Lecciones.TabIndex = 86;
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(14, 545);
+            this.label40.Location = new System.Drawing.Point(14, 515);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(147, 17);
             this.label40.TabIndex = 85;
@@ -1136,16 +1202,16 @@ namespace SO_Paz_y_Salvo
             // 
             // txtPL2Comunicacion
             // 
-            this.txtPL2Comunicacion.Location = new System.Drawing.Point(17, 491);
+            this.txtPL2Comunicacion.Location = new System.Drawing.Point(17, 463);
             this.txtPL2Comunicacion.Multiline = true;
             this.txtPL2Comunicacion.Name = "txtPL2Comunicacion";
-            this.txtPL2Comunicacion.Size = new System.Drawing.Size(1324, 51);
+            this.txtPL2Comunicacion.Size = new System.Drawing.Size(1324, 50);
             this.txtPL2Comunicacion.TabIndex = 84;
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(14, 471);
+            this.label39.Location = new System.Drawing.Point(14, 443);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(389, 17);
             this.label39.TabIndex = 83;
@@ -1155,7 +1221,7 @@ namespace SO_Paz_y_Salvo
             // 
             this.cbAcciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAcciones.FormattingEnabled = true;
-            this.cbAcciones.Location = new System.Drawing.Point(151, 439);
+            this.cbAcciones.Location = new System.Drawing.Point(151, 415);
             this.cbAcciones.Name = "cbAcciones";
             this.cbAcciones.Size = new System.Drawing.Size(475, 24);
             this.cbAcciones.TabIndex = 82;
@@ -1163,7 +1229,7 @@ namespace SO_Paz_y_Salvo
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(14, 436);
+            this.label38.Location = new System.Drawing.Point(14, 412);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(131, 17);
             this.label38.TabIndex = 81;
@@ -1171,16 +1237,16 @@ namespace SO_Paz_y_Salvo
             // 
             // txtPL2Accion
             // 
-            this.txtPL2Accion.Location = new System.Drawing.Point(17, 382);
+            this.txtPL2Accion.Location = new System.Drawing.Point(17, 360);
             this.txtPL2Accion.Multiline = true;
             this.txtPL2Accion.Name = "txtPL2Accion";
-            this.txtPL2Accion.Size = new System.Drawing.Size(1324, 51);
+            this.txtPL2Accion.Size = new System.Drawing.Size(1324, 50);
             this.txtPL2Accion.TabIndex = 80;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(14, 362);
+            this.label37.Location = new System.Drawing.Point(14, 341);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(115, 17);
             this.label37.TabIndex = 79;
@@ -1188,16 +1254,16 @@ namespace SO_Paz_y_Salvo
             // 
             // txtPL2Entrevista
             // 
-            this.txtPL2Entrevista.Location = new System.Drawing.Point(17, 308);
+            this.txtPL2Entrevista.Location = new System.Drawing.Point(17, 288);
             this.txtPL2Entrevista.Multiline = true;
             this.txtPL2Entrevista.Name = "txtPL2Entrevista";
-            this.txtPL2Entrevista.Size = new System.Drawing.Size(1324, 51);
+            this.txtPL2Entrevista.Size = new System.Drawing.Size(1324, 50);
             this.txtPL2Entrevista.TabIndex = 78;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(14, 288);
+            this.label35.Location = new System.Drawing.Point(14, 268);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(320, 17);
             this.label35.TabIndex = 77;
@@ -1205,16 +1271,16 @@ namespace SO_Paz_y_Salvo
             // 
             // txtPL2Declaraciones
             // 
-            this.txtPL2Declaraciones.Location = new System.Drawing.Point(17, 234);
+            this.txtPL2Declaraciones.Location = new System.Drawing.Point(17, 216);
             this.txtPL2Declaraciones.Multiline = true;
             this.txtPL2Declaraciones.Name = "txtPL2Declaraciones";
-            this.txtPL2Declaraciones.Size = new System.Drawing.Size(1324, 51);
+            this.txtPL2Declaraciones.Size = new System.Drawing.Size(1324, 50);
             this.txtPL2Declaraciones.TabIndex = 76;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(14, 214);
+            this.label34.Location = new System.Drawing.Point(14, 196);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(280, 17);
             this.label34.TabIndex = 75;
@@ -1222,16 +1288,16 @@ namespace SO_Paz_y_Salvo
             // 
             // txtPL2Protocolo
             // 
-            this.txtPL2Protocolo.Location = new System.Drawing.Point(17, 160);
+            this.txtPL2Protocolo.Location = new System.Drawing.Point(17, 144);
             this.txtPL2Protocolo.Multiline = true;
             this.txtPL2Protocolo.Name = "txtPL2Protocolo";
-            this.txtPL2Protocolo.Size = new System.Drawing.Size(1324, 51);
+            this.txtPL2Protocolo.Size = new System.Drawing.Size(1324, 50);
             this.txtPL2Protocolo.TabIndex = 74;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(14, 140);
+            this.label33.Location = new System.Drawing.Point(14, 125);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(187, 17);
             this.label33.TabIndex = 73;
@@ -1239,16 +1305,16 @@ namespace SO_Paz_y_Salvo
             // 
             // txtPL2Historia
             // 
-            this.txtPL2Historia.Location = new System.Drawing.Point(17, 75);
+            this.txtPL2Historia.Location = new System.Drawing.Point(17, 72);
             this.txtPL2Historia.Multiline = true;
             this.txtPL2Historia.Name = "txtPL2Historia";
-            this.txtPL2Historia.Size = new System.Drawing.Size(1324, 62);
+            this.txtPL2Historia.Size = new System.Drawing.Size(1324, 50);
             this.txtPL2Historia.TabIndex = 72;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(14, 55);
+            this.label32.Location = new System.Drawing.Point(14, 53);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(234, 17);
             this.label32.TabIndex = 71;
@@ -1346,6 +1412,9 @@ namespace SO_Paz_y_Salvo
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtDescripActual);
+            this.groupBox2.Controls.Add(this.txtIdrActual);
+            this.groupBox2.Controls.Add(this.label43);
             this.groupBox2.Controls.Add(this.txtOidActual);
             this.groupBox2.Controls.Add(this.txtPacActual);
             this.groupBox2.Controls.Add(this.txtIdActual);
@@ -1356,6 +1425,33 @@ namespace SO_Paz_y_Salvo
             this.groupBox2.Size = new System.Drawing.Size(464, 62);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
+            // 
+            // txtIdrActual
+            // 
+            this.txtIdrActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdrActual.Location = new System.Drawing.Point(415, 14);
+            this.txtIdrActual.Name = "txtIdrActual";
+            this.txtIdrActual.ReadOnly = true;
+            this.txtIdrActual.Size = new System.Drawing.Size(47, 22);
+            this.txtIdrActual.TabIndex = 6;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(306, 17);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(56, 17);
+            this.label43.TabIndex = 5;
+            this.label43.Text = "Oid-IdR";
+            // 
+            // txtOidActual
+            // 
+            this.txtOidActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOidActual.Location = new System.Drawing.Point(365, 14);
+            this.txtOidActual.Name = "txtOidActual";
+            this.txtOidActual.ReadOnly = true;
+            this.txtOidActual.Size = new System.Drawing.Size(47, 22);
+            this.txtOidActual.TabIndex = 4;
             // 
             // txtPacActual
             // 
@@ -1393,76 +1489,61 @@ namespace SO_Paz_y_Salvo
             this.label13.TabIndex = 0;
             this.label13.Text = "Id";
             // 
-            // dgvPMCorreos
+            // txtDescripActual
             // 
-            this.dgvPMCorreos.AllowUserToAddRows = false;
-            this.dgvPMCorreos.AllowUserToDeleteRows = false;
-            this.dgvPMCorreos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPMCorreos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvPMCorreos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvPMCorreos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPMCorreos.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPMCorreos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPMCorreos.Location = new System.Drawing.Point(702, 489);
-            this.dgvPMCorreos.Name = "dgvPMCorreos";
-            this.dgvPMCorreos.RowHeadersVisible = false;
-            this.dgvPMCorreos.RowHeadersWidth = 51;
-            this.dgvPMCorreos.RowTemplate.Height = 24;
-            this.dgvPMCorreos.Size = new System.Drawing.Size(442, 121);
-            this.dgvPMCorreos.TabIndex = 61;
+            this.txtDescripActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescripActual.Location = new System.Drawing.Point(251, 16);
+            this.txtDescripActual.Name = "txtDescripActual";
+            this.txtDescripActual.ReadOnly = true;
+            this.txtDescripActual.Size = new System.Drawing.Size(49, 15);
+            this.txtDescripActual.TabIndex = 7;
+            this.txtDescripActual.Visible = false;
             // 
-            // btnAddNot
+            // btnRegProtocolo
             // 
-            this.btnAddNot.Location = new System.Drawing.Point(1150, 458);
-            this.btnAddNot.Name = "btnAddNot";
-            this.btnAddNot.Size = new System.Drawing.Size(35, 24);
-            this.btnAddNot.TabIndex = 62;
-            this.btnAddNot.Text = "+";
-            this.btnAddNot.UseVisualStyleBackColor = true;
-            this.btnAddNot.Click += new System.EventHandler(this.btnAddNot_Click);
+            this.btnRegProtocolo.Location = new System.Drawing.Point(1184, 594);
+            this.btnRegProtocolo.Name = "btnRegProtocolo";
+            this.btnRegProtocolo.Size = new System.Drawing.Size(162, 36);
+            this.btnRegProtocolo.TabIndex = 65;
+            this.btnRegProtocolo.Text = "Registrar Protocolo";
+            this.btnRegProtocolo.UseVisualStyleBackColor = true;
+            this.btnRegProtocolo.Click += new System.EventHandler(this.btnRegProtocolo_Click);
             // 
-            // btnDelNot
+            // btnRegProtocolo2
             // 
-            this.btnDelNot.Location = new System.Drawing.Point(1150, 488);
-            this.btnDelNot.Name = "btnDelNot";
-            this.btnDelNot.Size = new System.Drawing.Size(35, 24);
-            this.btnDelNot.TabIndex = 63;
-            this.btnDelNot.Text = "-";
-            this.btnDelNot.UseVisualStyleBackColor = true;
+            this.btnRegProtocolo2.Location = new System.Drawing.Point(1179, 597);
+            this.btnRegProtocolo2.Name = "btnRegProtocolo2";
+            this.btnRegProtocolo2.Size = new System.Drawing.Size(162, 36);
+            this.btnRegProtocolo2.TabIndex = 87;
+            this.btnRegProtocolo2.Text = "Registrar Protocolo";
+            this.btnRegProtocolo2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // statusStrip1
             // 
-            this.button1.Location = new System.Drawing.Point(1202, 459);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 36);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "Registrar Análisis";
-            this.button1.UseVisualStyleBackColor = true;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stId});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 765);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1389, 26);
+            this.statusStrip1.TabIndex = 19;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // txtOidActual
+            // stId
             // 
-            this.txtOidActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOidActual.Location = new System.Drawing.Point(375, 16);
-            this.txtOidActual.Name = "txtOidActual";
-            this.txtOidActual.ReadOnly = true;
-            this.txtOidActual.Size = new System.Drawing.Size(77, 15);
-            this.txtOidActual.TabIndex = 4;
+            this.stId.Name = "stId";
+            this.stId.Size = new System.Drawing.Size(151, 20);
+            this.stId.Text = "toolStripStatusLabel1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1389, 771);
+            this.ClientSize = new System.Drawing.Size(1389, 791);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btGnSalir);
-            this.Controls.Add(this.tabControl2);
+            this.Controls.Add(this.EAP);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -1471,7 +1552,7 @@ namespace SO_Paz_y_Salvo
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
-            this.tabControl2.ResumeLayout(false);
+            this.EAP.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.gbRegSucesos.ResumeLayout(false);
             this.gbRegSucesos.PerformLayout();
@@ -1479,6 +1560,7 @@ namespace SO_Paz_y_Salvo
             this.gbMedicamentos.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPMCorreos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPM)).EndInit();
@@ -1492,8 +1574,10 @@ namespace SO_Paz_y_Salvo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPMCorreos)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1504,7 +1588,7 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.Button btRegImp;
         private System.Windows.Forms.Button btRegNuevo;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabControl EAP;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label20;
@@ -1556,7 +1640,7 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.TextBox txtPLContexto;
         private System.Windows.Forms.TextBox txtPLOrganizacion;
         private System.Windows.Forms.TextBox txtPLAmbiente;
-        private System.Windows.Forms.TextBox txtPLEQuipo;
+        private System.Windows.Forms.TextBox txtPLEquipo;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TextBox txtPL2Lecciones;
         private System.Windows.Forms.Label label40;
@@ -1625,6 +1709,13 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.Button btnAddNot;
         private System.Windows.Forms.DataGridView dgvPMCorreos;
         private System.Windows.Forms.TextBox txtOidActual;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox txtIdrActual;
+        private System.Windows.Forms.TextBox txtDescripActual;
+        private System.Windows.Forms.Button btnRegProtocolo;
+        private System.Windows.Forms.Button btnRegProtocolo2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel stId;
     }
 }
 

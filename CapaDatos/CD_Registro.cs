@@ -19,8 +19,10 @@ namespace CapaDatos
         public DataTable Mostrar() { 
        
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_SO03MostrarGrillaEventos";
+            comando.CommandText = "sp_EAGREGIS";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
+
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();
@@ -30,8 +32,9 @@ namespace CapaDatos
         public DataTable MostrarPM(int OID)
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_SO03MostrarGrillaPM";
+            comando.CommandText = "sp_EAGMPLAN";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
 
             comando.Parameters.AddWithValue("@OID", OID);
 
@@ -45,8 +48,9 @@ namespace CapaDatos
         public DataTable MostrarPMCorreos(int OID)
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_SO03MostrarGrillaPMCorreos";
+            comando.CommandText = "sp_EAGCPLAN";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
 
             comando.Parameters.AddWithValue("@OID", OID);
 
@@ -61,8 +65,9 @@ namespace CapaDatos
             //REGISTRO INICIAL DEL SUCESO
 
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_SO03RegSuceso";
+            comando.CommandText = "sp_EARREGIS";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
 
             comando.Parameters.AddWithValue("@EAID", 0);
             comando.Parameters.AddWithValue("@EAFECHA", fecha);
@@ -93,8 +98,9 @@ namespace CapaDatos
             //REGISTRO INICIAL DEL SUCESO
 
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_SO03PlanMejoramiento";
+            comando.CommandText = "sp_EARMPLAN";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
 
             comando.Parameters.AddWithValue("@EAOID", EAOID);
             comando.Parameters.AddWithValue("@PMQUE", que);
@@ -118,8 +124,10 @@ namespace CapaDatos
             //REGISTRO INICIAL DEL SUCESO
 
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_SO03PMCorreos";
+            comando.CommandText = "sp_EARCPLAN";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
+
 
             comando.Parameters.AddWithValue("@EAOID", EAOID);
             comando.Parameters.AddWithValue("@PMCORREO", correo);
@@ -135,6 +143,8 @@ namespace CapaDatos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "A01EditarReg";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
+
             comando.Parameters.AddWithValue("@fecha", fecha);
             comando.Parameters.AddWithValue("@municipio", municipio);
             comando.Parameters.AddWithValue("@id", id);
@@ -151,6 +161,7 @@ namespace CapaDatos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "A01EliminarReg";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
 
             comando.Parameters.AddWithValue("@idpro",id);
 
@@ -158,6 +169,48 @@ namespace CapaDatos
 
             comando.Parameters.Clear();
         }
+        public void updateRegAnalisis(int oid, int tipoReporte, int componente, int causaRaiz, int rolImplicado, int estado)
+        {
+            //REGISTRO INICIAL DEL SUCESO
+
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "sp_EAUANALI";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
+
+            comando.Parameters.AddWithValue("@EAOID", oid);
+            comando.Parameters.AddWithValue("@EAATIPRE", tipoReporte);
+            comando.Parameters.AddWithValue("@EAACOMPO", componente);
+            comando.Parameters.AddWithValue("@EAACAURA", causaRaiz);
+            comando.Parameters.AddWithValue("@EAAROLIM", rolImplicado);
+            comando.Parameters.AddWithValue("@EAAESTAD", estado);
+            comando.ExecuteNonQuery();
+
+            comando.Parameters.Clear();
+
+        }
+
+        public void updateRegProtocolo(int oid, string paciente, string tarea, string individuo, string equipo, string ambiente, string organizacion, string contexto)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "sp_EAUPROTO";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
+
+            comando.Parameters.AddWithValue("@EAOID", oid);
+            comando.Parameters.AddWithValue("@EAPPACIE", paciente);
+            comando.Parameters.AddWithValue("@EAPTAREA", tarea);
+            comando.Parameters.AddWithValue("@EAPINDIV", individuo);
+            comando.Parameters.AddWithValue("@EAPEQUTR", equipo);
+            comando.Parameters.AddWithValue("@EAPAMBIE", ambiente);
+            comando.Parameters.AddWithValue("@EAPORGAN", organizacion);
+            comando.Parameters.AddWithValue("@EAPCONTE", contexto);
+
+            comando.ExecuteNonQuery();
+
+            comando.Parameters.Clear();
+        }
+
 
     }
 }
