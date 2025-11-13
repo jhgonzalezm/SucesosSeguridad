@@ -13,10 +13,10 @@ namespace CapaNegocio
     {
         private CD_Registro objetoCD = new CD_Registro();
 
-        public DataTable MostrarReg() {
+        public DataTable MostrarReg( int usuario) {
 
             DataTable tabla = new DataTable();
-            tabla = objetoCD.Mostrar();
+            tabla = objetoCD.Mostrar( usuario );
             return tabla;
         }
         public DataTable MostrarRegPM(int OID)
@@ -56,9 +56,9 @@ namespace CapaNegocio
 
         }
 
-        public void InsertarRegCor(int EAOID, int correo)
+        public void InsertarRegCor(int EAOID, int correo, int usuario)
         {
-            objetoCD.InsertarCor(EAOID, correo);
+            objetoCD.InsertarRegCor(EAOID, correo, usuario);
 
         }
         public void EditarReg(DateTime fecha, string municipio, string id, string reporta, string evento, string oid)
@@ -71,10 +71,10 @@ namespace CapaNegocio
             objetoCD.Eliminar(Convert.ToInt32(oid));
         }
 
-        public void UpdateRegAnalisis(int oid, int tipoReporte, int componente, int causaRaiz, int rolImplicado, int estado)
+        public void UpdateRegAnalisis(int oid, int tipoReporte, int componente, int causaRaiz, string analizado, int estado, int londres)
         {
 
-            objetoCD.updateRegAnalisis(oid,  tipoReporte, componente,  causaRaiz,  rolImplicado,  estado);
+            objetoCD.updateRegAnalisis(oid,  tipoReporte, componente,  causaRaiz,  analizado,  estado, londres);
         }
 
         public void UpdateRegProtocolo(int oid, string paciente, string tarea, string individuo, string equipo, string ambiente, string organizacion, string contexto)
@@ -83,5 +83,10 @@ namespace CapaNegocio
             objetoCD.updateRegProtocolo(oid, paciente,  tarea,  individuo,  equipo,  ambiente,  organizacion,  contexto);
         }
 
+        //public void UpdateRegProtocolo2(int oid, string equipo, DateTime fecha, string historia, string protocolo, string declaraciones, string entrevista, string acciones, int codAcciones, string comunicacion, string lecciones)
+        //{
+
+        //    objetoCD.updateRegProtocolo2(oid, equipo, fecha, historia, protocolo, declaraciones, entrevista, acciones, codAcciones, comunicacion, lecciones);
+        //}
     }
 }

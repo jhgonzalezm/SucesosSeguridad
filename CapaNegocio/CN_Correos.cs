@@ -17,6 +17,9 @@ namespace CapaNegocio
         {
             try
             {
+                // Forzar TLS 1.2
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 //correo origen
                 //string Host = "smtp.gmail.com";
                 string Host = ceHost;

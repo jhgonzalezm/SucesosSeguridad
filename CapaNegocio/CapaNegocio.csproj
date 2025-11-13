@@ -45,6 +45,7 @@
     <Compile Include="CN_Correos.cs" />
     <Compile Include="CN_Registro.cs" />
     <Compile Include="CN_Terminal.cs" />
+    <Compile Include="CN_Users.cs" />
     <Compile Include="NEnumeradores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

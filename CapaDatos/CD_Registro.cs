@@ -16,12 +16,14 @@ namespace CapaDatos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
-        public DataTable Mostrar() { 
+        public DataTable Mostrar( int usuario) { 
        
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "sp_EAGREGIS";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.Clear();
+
+            comando.Parameters.AddWithValue("@GENUSUARI", usuario);
 
             leer = comando.ExecuteReader();
             tabla.Load(leer);
@@ -119,7 +121,7 @@ namespace CapaDatos
 
         }
 
-        public void InsertarCor(int EAOID, int correo)
+        public void InsertarRegCor(int EAOID, int correo, int usuario)
         {
             //REGISTRO INICIAL DEL SUCESO
 
@@ -131,6 +133,7 @@ namespace CapaDatos
 
             comando.Parameters.AddWithValue("@EAOID", EAOID);
             comando.Parameters.AddWithValue("@PMCORREO", correo);
+            comando.Parameters.AddWithValue("@GENUSUARI", usuario);
 
             comando.ExecuteNonQuery();
 
@@ -169,7 +172,7 @@ namespace CapaDatos
 
             comando.Parameters.Clear();
         }
-        public void updateRegAnalisis(int oid, int tipoReporte, int componente, int causaRaiz, int rolImplicado, int estado)
+        public void updateRegAnalisis(int oid, int tipoReporte, int componente, int causaRaiz, string analizado, int estado, int londres)
         {
             //REGISTRO INICIAL DEL SUCESO
 
@@ -182,8 +185,9 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@EAATIPRE", tipoReporte);
             comando.Parameters.AddWithValue("@EAACOMPO", componente);
             comando.Parameters.AddWithValue("@EAACAURA", causaRaiz);
-            comando.Parameters.AddWithValue("@EAAROLIM", rolImplicado);
+            comando.Parameters.AddWithValue("@EAAANALI", analizado);
             comando.Parameters.AddWithValue("@EAAESTAD", estado);
+            comando.Parameters.AddWithValue("@EAALONDR", londres);
             comando.ExecuteNonQuery();
 
             comando.Parameters.Clear();
@@ -211,6 +215,29 @@ namespace CapaDatos
             comando.Parameters.Clear();
         }
 
+        //public void updateRegProtocolo2(int oid, string equipo, DateTime fecha, string historia, string protocolo, string declaraciones, string entrevista, string acciones, int codAcciones, string comunicacion, string lecciones)
+        //{
+        //    comando.Connection = conexion.AbrirConexion();
+        //    comando.CommandText = "sp_EAUPROTO2";
+        //    comando.CommandType = CommandType.StoredProcedure;
+        //    comando.Parameters.Clear();
+
+        //    comando.Parameters.AddWithValue("@EAOID", oid);
+        //    comando.Parameters.AddWithValue("@EAPEQUIP", equipo);
+        //    comando.Parameters.AddWithValue("@EAPFECHA", fecha);
+        //    comando.Parameters.AddWithValue("@EAPHISTO", historia);
+        //    comando.Parameters.AddWithValue("@EAPPROTO", declaraciones);
+        //    comando.Parameters.AddWithValue("@EAPDECLA", declaraciones);
+        //    comando.Parameters.AddWithValue("@EAPENTRE", entrevista);
+        //    comando.Parameters.AddWithValue("@EAPACCIO", acciones);
+        //    comando.Parameters.AddWithValue("@EAPINSEG", codAcciones);
+        //    comando.Parameters.AddWithValue("@EAPCOMUN", comunicacion);
+        //    comando.Parameters.AddWithValue("@EAPLECCI", lecciones);
+
+        //    comando.ExecuteNonQuery();
+
+        //    comando.Parameters.Clear();
+        //}
 
     }
 }
