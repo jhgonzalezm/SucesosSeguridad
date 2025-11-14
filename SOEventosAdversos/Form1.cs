@@ -838,7 +838,7 @@ namespace SO_Paz_y_Salvo
                 string wEmail = txtCECORREO.Text;
                 string wPassword = txtCEPASSMASIVO.Text;
 
-                MessageBox.Show(wHost + "*" + wEmail + "*" + wPassword);
+                //MessageBox.Show(wHost + "*" + wEmail + "*" + wPassword);
 
                 //Recorrer Grilla de correos
                 string wAsunto = @"ID Suceso de Seguridad : " + txtIdrActual.Text + "   Paciente : " + txtPacActual.Text;
@@ -899,18 +899,18 @@ namespace SO_Paz_y_Salvo
                  "</html>";
 
 
-                enviarCorreosNotificacion(wHost, wPort, wEmail, wPassword, wAsunto, wMensaje, "jhgonzalezm@gmail.com");
+                // enviarCorreosNotificacion(wHost, wPort, wEmail, wPassword, wAsunto, wMensaje, "jhgonzalezm@gmail.com");
 
-                //foreach (DataGridViewRow row in dgvPMCorreos.Rows)
-                //{
-                //    // Omitir la fila nueva (en modo edición)
-                //    if (row.IsNewRow) continue;
-                //    var wCorreo = row.Cells["CECORREO"].Value.ToString();
-                //    enviarCorreosNotificacion(wHost, wPort, wEmail, wPassword, wAsunto, wMensaje, wCorreo);
-                //    MessageBox.Show("Correo: " + wCorreo);
-                //    // ACTUALIZAR TABLA DE EANREAUSU Y EANMREGIS
+                foreach (DataGridViewRow row in dgvPMCorreos.Rows)
+                {
+                    // Omitir la fila nueva (en modo edición)
+                    if (row.IsNewRow) continue;
+                    var wCorreo = row.Cells["CECORREO"].Value.ToString();
+                    enviarCorreosNotificacion(wHost, wPort, wEmail, wPassword, wAsunto, wMensaje, wCorreo);
+                    MessageBox.Show("Correo: " + wCorreo);
+                    // ACTUALIZAR TABLA DE EANREAUSU Y EANMREGIS
 
-                //}
+                }
             }
             else
             {
@@ -1058,6 +1058,31 @@ namespace SO_Paz_y_Salvo
         }
 
         private void cbNotificar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label55_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label62_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPLAmbiente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label59_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label66_Click(object sender, EventArgs e)
         {
 
         }

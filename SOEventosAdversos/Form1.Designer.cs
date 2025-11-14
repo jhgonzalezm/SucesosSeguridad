@@ -29,11 +29,12 @@ namespace SO_Paz_y_Salvo
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btGnSalir = new System.Windows.Forms.Button();
             this.tabGrilla = new System.Windows.Forms.TabPage();
+            this.btnActualizarGrillaPpal = new System.Windows.Forms.Button();
             this.btnFiltro = new System.Windows.Forms.Button();
             this.txtReg = new System.Windows.Forms.TextBox();
             this.lbltxtReg = new System.Windows.Forms.Label();
@@ -106,7 +107,9 @@ namespace SO_Paz_y_Salvo
             this.gbNotificar = new System.Windows.Forms.GroupBox();
             this.label44 = new System.Windows.Forms.Label();
             this.btnEnviarNotificacion = new System.Windows.Forms.Button();
+            this.txtGCSERVIDOR = new System.Windows.Forms.TextBox();
             this.cbCorreoOrigen = new System.Windows.Forms.ComboBox();
+            this.txtCECORREO = new System.Windows.Forms.TextBox();
             this.btnDelNot = new System.Windows.Forms.Button();
             this.btnAddNot = new System.Windows.Forms.Button();
             this.dgvPMCorreos = new System.Windows.Forms.DataGridView();
@@ -141,7 +144,6 @@ namespace SO_Paz_y_Salvo
             this.txtPLIndividuo = new System.Windows.Forms.TextBox();
             this.txtPLTarea = new System.Windows.Forms.TextBox();
             this.txtPLPaciente = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabLondres2 = new System.Windows.Forms.TabPage();
             this.btnRegProtocolo2 = new System.Windows.Forms.Button();
             this.txtPL2Lecciones = new System.Windows.Forms.TextBox();
@@ -188,13 +190,27 @@ namespace SO_Paz_y_Salvo
             this.stId = new System.Windows.Forms.ToolStripStatusLabel();
             this.label50 = new System.Windows.Forms.Label();
             this.txtRolNom = new System.Windows.Forms.TextBox();
-            this.btnActualizarGrillaPpal = new System.Windows.Forms.Button();
-            this.txtCECORREO = new System.Windows.Forms.TextBox();
-            this.txtGCSERVIDOR = new System.Windows.Forms.TextBox();
             this.txtCEPASSMASIVO = new System.Windows.Forms.TextBox();
             this.txtGCPUERTO = new System.Windows.Forms.TextBox();
             this.txtOidUsAutenticado = new System.Windows.Forms.TextBox();
             this.cbUsuarios = new System.Windows.Forms.ComboBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
             this.tabGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.EAP.SuspendLayout();
@@ -211,7 +227,6 @@ namespace SO_Paz_y_Salvo
             this.gbPlanMejoramiento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPM)).BeginInit();
             this.tabLondres.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabLondres2.SuspendLayout();
             this.tabAdjuntos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdjuntos)).BeginInit();
@@ -254,6 +269,16 @@ namespace SO_Paz_y_Salvo
             this.tabGrilla.TabIndex = 0;
             this.tabGrilla.Text = "1.Relación de Sucesos de Seguridad";
             this.tabGrilla.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarGrillaPpal
+            // 
+            this.btnActualizarGrillaPpal.Location = new System.Drawing.Point(821, 48);
+            this.btnActualizarGrillaPpal.Name = "btnActualizarGrillaPpal";
+            this.btnActualizarGrillaPpal.Size = new System.Drawing.Size(102, 30);
+            this.btnActualizarGrillaPpal.TabIndex = 14;
+            this.btnActualizarGrillaPpal.Text = "button2";
+            this.btnActualizarGrillaPpal.UseVisualStyleBackColor = true;
+            this.btnActualizarGrillaPpal.Click += new System.EventHandler(this.btnActualizarGrillaPpal_Click);
             // 
             // btnFiltro
             // 
@@ -367,14 +392,14 @@ namespace SO_Paz_y_Salvo
             this.dgvDatos.AllowUserToResizeRows = false;
             this.dgvDatos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(17, 84);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -505,7 +530,7 @@ namespace SO_Paz_y_Salvo
             this.tabRegistro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabRegistro.Name = "tabRegistro";
             this.tabRegistro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabRegistro.Size = new System.Drawing.Size(1357, 673);
+            this.tabRegistro.Size = new System.Drawing.Size(1357, 640);
             this.tabRegistro.TabIndex = 1;
             this.tabRegistro.Text = "2.Registro del Suceso";
             this.tabRegistro.UseVisualStyleBackColor = true;
@@ -1047,6 +1072,16 @@ namespace SO_Paz_y_Salvo
             this.btnEnviarNotificacion.UseVisualStyleBackColor = true;
             this.btnEnviarNotificacion.Click += new System.EventHandler(this.btnEnviarNotificacion_Click);
             // 
+            // txtGCSERVIDOR
+            // 
+            this.txtGCSERVIDOR.BackColor = System.Drawing.Color.White;
+            this.txtGCSERVIDOR.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGCSERVIDOR.Location = new System.Drawing.Point(22, 60);
+            this.txtGCSERVIDOR.Name = "txtGCSERVIDOR";
+            this.txtGCSERVIDOR.ReadOnly = true;
+            this.txtGCSERVIDOR.Size = new System.Drawing.Size(399, 15);
+            this.txtGCSERVIDOR.TabIndex = 23;
+            // 
             // cbCorreoOrigen
             // 
             this.cbCorreoOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1057,6 +1092,16 @@ namespace SO_Paz_y_Salvo
             this.cbCorreoOrigen.Size = new System.Drawing.Size(258, 24);
             this.cbCorreoOrigen.TabIndex = 66;
             this.cbCorreoOrigen.Visible = false;
+            // 
+            // txtCECORREO
+            // 
+            this.txtCECORREO.BackColor = System.Drawing.Color.White;
+            this.txtCECORREO.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCECORREO.Location = new System.Drawing.Point(22, 36);
+            this.txtCECORREO.Name = "txtCECORREO";
+            this.txtCECORREO.ReadOnly = true;
+            this.txtCECORREO.Size = new System.Drawing.Size(399, 15);
+            this.txtCECORREO.TabIndex = 22;
             // 
             // btnDelNot
             // 
@@ -1090,14 +1135,14 @@ namespace SO_Paz_y_Salvo
             this.dgvPMCorreos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPMCorreos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPMCorreos.ColumnHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPMCorreos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPMCorreos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPMCorreos.Location = new System.Drawing.Point(427, 59);
             this.dgvPMCorreos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPMCorreos.Name = "dgvPMCorreos";
@@ -1339,6 +1384,23 @@ namespace SO_Paz_y_Salvo
             // 
             // tabLondres
             // 
+            this.tabLondres.Controls.Add(this.label67);
+            this.tabLondres.Controls.Add(this.label66);
+            this.tabLondres.Controls.Add(this.label65);
+            this.tabLondres.Controls.Add(this.label64);
+            this.tabLondres.Controls.Add(this.label63);
+            this.tabLondres.Controls.Add(this.label62);
+            this.tabLondres.Controls.Add(this.label61);
+            this.tabLondres.Controls.Add(this.label60);
+            this.tabLondres.Controls.Add(this.label59);
+            this.tabLondres.Controls.Add(this.label58);
+            this.tabLondres.Controls.Add(this.label57);
+            this.tabLondres.Controls.Add(this.label56);
+            this.tabLondres.Controls.Add(this.label55);
+            this.tabLondres.Controls.Add(this.label54);
+            this.tabLondres.Controls.Add(this.label53);
+            this.tabLondres.Controls.Add(this.label52);
+            this.tabLondres.Controls.Add(this.label51);
             this.tabLondres.Controls.Add(this.btnRegProtocolo);
             this.tabLondres.Controls.Add(this.txtPLContexto);
             this.tabLondres.Controls.Add(this.txtPLOrganizacion);
@@ -1347,11 +1409,10 @@ namespace SO_Paz_y_Salvo
             this.tabLondres.Controls.Add(this.txtPLIndividuo);
             this.tabLondres.Controls.Add(this.txtPLTarea);
             this.tabLondres.Controls.Add(this.txtPLPaciente);
-            this.tabLondres.Controls.Add(this.pictureBox2);
             this.tabLondres.Location = new System.Drawing.Point(4, 25);
             this.tabLondres.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabLondres.Name = "tabLondres";
-            this.tabLondres.Size = new System.Drawing.Size(1357, 673);
+            this.tabLondres.Size = new System.Drawing.Size(1357, 640);
             this.tabLondres.TabIndex = 3;
             this.tabLondres.Text = "4.Protocolo de Londres";
             this.tabLondres.UseVisualStyleBackColor = true;
@@ -1369,79 +1430,68 @@ namespace SO_Paz_y_Salvo
             // 
             // txtPLContexto
             // 
-            this.txtPLContexto.Location = new System.Drawing.Point(573, 412);
+            this.txtPLContexto.Location = new System.Drawing.Point(13, 484);
             this.txtPLContexto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPLContexto.Multiline = true;
             this.txtPLContexto.Name = "txtPLContexto";
-            this.txtPLContexto.Size = new System.Drawing.Size(773, 40);
+            this.txtPLContexto.Size = new System.Drawing.Size(1330, 40);
             this.txtPLContexto.TabIndex = 7;
             // 
             // txtPLOrganizacion
             // 
-            this.txtPLOrganizacion.Location = new System.Drawing.Point(573, 364);
+            this.txtPLOrganizacion.Location = new System.Drawing.Point(13, 423);
             this.txtPLOrganizacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPLOrganizacion.Multiline = true;
             this.txtPLOrganizacion.Name = "txtPLOrganizacion";
-            this.txtPLOrganizacion.Size = new System.Drawing.Size(773, 40);
+            this.txtPLOrganizacion.Size = new System.Drawing.Size(1330, 40);
             this.txtPLOrganizacion.TabIndex = 6;
             // 
             // txtPLAmbiente
             // 
-            this.txtPLAmbiente.Location = new System.Drawing.Point(573, 265);
+            this.txtPLAmbiente.Location = new System.Drawing.Point(13, 360);
             this.txtPLAmbiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPLAmbiente.Multiline = true;
             this.txtPLAmbiente.Name = "txtPLAmbiente";
-            this.txtPLAmbiente.Size = new System.Drawing.Size(773, 89);
+            this.txtPLAmbiente.Size = new System.Drawing.Size(1330, 40);
             this.txtPLAmbiente.TabIndex = 5;
+            this.txtPLAmbiente.TextChanged += new System.EventHandler(this.txtPLAmbiente_TextChanged);
             // 
             // txtPLEquipo
             // 
-            this.txtPLEquipo.Location = new System.Drawing.Point(573, 192);
+            this.txtPLEquipo.Location = new System.Drawing.Point(13, 279);
             this.txtPLEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPLEquipo.Multiline = true;
             this.txtPLEquipo.Name = "txtPLEquipo";
-            this.txtPLEquipo.Size = new System.Drawing.Size(773, 64);
+            this.txtPLEquipo.Size = new System.Drawing.Size(1330, 40);
             this.txtPLEquipo.TabIndex = 4;
             // 
             // txtPLIndividuo
             // 
-            this.txtPLIndividuo.Location = new System.Drawing.Point(573, 155);
+            this.txtPLIndividuo.Location = new System.Drawing.Point(13, 218);
             this.txtPLIndividuo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPLIndividuo.Multiline = true;
             this.txtPLIndividuo.Name = "txtPLIndividuo";
-            this.txtPLIndividuo.Size = new System.Drawing.Size(773, 31);
+            this.txtPLIndividuo.Size = new System.Drawing.Size(1330, 40);
             this.txtPLIndividuo.TabIndex = 3;
             // 
             // txtPLTarea
             // 
-            this.txtPLTarea.Location = new System.Drawing.Point(573, 84);
+            this.txtPLTarea.Location = new System.Drawing.Point(13, 157);
             this.txtPLTarea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPLTarea.Multiline = true;
             this.txtPLTarea.Name = "txtPLTarea";
-            this.txtPLTarea.Size = new System.Drawing.Size(773, 64);
+            this.txtPLTarea.Size = new System.Drawing.Size(1330, 40);
             this.txtPLTarea.TabIndex = 2;
             this.txtPLTarea.TextChanged += new System.EventHandler(this.txtPLTarea_TextChanged);
             // 
             // txtPLPaciente
             // 
-            this.txtPLPaciente.Location = new System.Drawing.Point(573, 36);
+            this.txtPLPaciente.Location = new System.Drawing.Point(13, 94);
             this.txtPLPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPLPaciente.Multiline = true;
             this.txtPLPaciente.Name = "txtPLPaciente";
-            this.txtPLPaciente.Size = new System.Drawing.Size(773, 40);
+            this.txtPLPaciente.Size = new System.Drawing.Size(1330, 40);
             this.txtPLPaciente.TabIndex = 1;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::SO_Eventos.Properties.Resources.Londres2;
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 7);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1348, 450);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // tabLondres2
             // 
@@ -1469,7 +1519,7 @@ namespace SO_Paz_y_Salvo
             this.tabLondres2.Location = new System.Drawing.Point(4, 25);
             this.tabLondres2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabLondres2.Name = "tabLondres2";
-            this.tabLondres2.Size = new System.Drawing.Size(1357, 673);
+            this.tabLondres2.Size = new System.Drawing.Size(1357, 640);
             this.tabLondres2.TabIndex = 4;
             this.tabLondres2.Text = "5.Protocolo Londres -2";
             this.tabLondres2.UseVisualStyleBackColor = true;
@@ -1674,7 +1724,7 @@ namespace SO_Paz_y_Salvo
             this.tabAdjuntos.Location = new System.Drawing.Point(4, 25);
             this.tabAdjuntos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabAdjuntos.Name = "tabAdjuntos";
-            this.tabAdjuntos.Size = new System.Drawing.Size(1357, 673);
+            this.tabAdjuntos.Size = new System.Drawing.Size(1357, 640);
             this.tabAdjuntos.TabIndex = 5;
             this.tabAdjuntos.Text = "6.Archivos Adjuntos";
             this.tabAdjuntos.UseVisualStyleBackColor = true;
@@ -1909,36 +1959,6 @@ namespace SO_Paz_y_Salvo
             this.txtRolNom.Size = new System.Drawing.Size(495, 22);
             this.txtRolNom.TabIndex = 21;
             // 
-            // btnActualizarGrillaPpal
-            // 
-            this.btnActualizarGrillaPpal.Location = new System.Drawing.Point(821, 48);
-            this.btnActualizarGrillaPpal.Name = "btnActualizarGrillaPpal";
-            this.btnActualizarGrillaPpal.Size = new System.Drawing.Size(102, 30);
-            this.btnActualizarGrillaPpal.TabIndex = 14;
-            this.btnActualizarGrillaPpal.Text = "button2";
-            this.btnActualizarGrillaPpal.UseVisualStyleBackColor = true;
-            this.btnActualizarGrillaPpal.Click += new System.EventHandler(this.btnActualizarGrillaPpal_Click);
-            // 
-            // txtCECORREO
-            // 
-            this.txtCECORREO.BackColor = System.Drawing.Color.White;
-            this.txtCECORREO.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCECORREO.Location = new System.Drawing.Point(22, 36);
-            this.txtCECORREO.Name = "txtCECORREO";
-            this.txtCECORREO.ReadOnly = true;
-            this.txtCECORREO.Size = new System.Drawing.Size(399, 15);
-            this.txtCECORREO.TabIndex = 22;
-            // 
-            // txtGCSERVIDOR
-            // 
-            this.txtGCSERVIDOR.BackColor = System.Drawing.Color.White;
-            this.txtGCSERVIDOR.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGCSERVIDOR.Location = new System.Drawing.Point(22, 60);
-            this.txtGCSERVIDOR.Name = "txtGCSERVIDOR";
-            this.txtGCSERVIDOR.ReadOnly = true;
-            this.txtGCSERVIDOR.Size = new System.Drawing.Size(399, 15);
-            this.txtGCSERVIDOR.TabIndex = 23;
-            // 
             // txtCEPASSMASIVO
             // 
             this.txtCEPASSMASIVO.Location = new System.Drawing.Point(125, 796);
@@ -1969,6 +1989,172 @@ namespace SO_Paz_y_Salvo
             this.cbUsuarios.Name = "cbUsuarios";
             this.cbUsuarios.Size = new System.Drawing.Size(172, 24);
             this.cbUsuarios.TabIndex = 69;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(13, 41);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(58, 18);
+            this.label51.TabIndex = 66;
+            this.label51.Text = "Origen";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(184, 41);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(153, 18);
+            this.label52.TabIndex = 67;
+            this.label52.Text = "Factor Contributivo";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(13, 73);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(63, 17);
+            this.label53.TabIndex = 68;
+            this.label53.Text = "Paciente";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(13, 136);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(126, 17);
+            this.label54.TabIndex = 69;
+            this.label54.Text = "Tarea y tecnología";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(13, 199);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(64, 17);
+            this.label55.TabIndex = 70;
+            this.label55.Text = "Individuo";
+            this.label55.Click += new System.EventHandler(this.label55_Click_1);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(13, 260);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(125, 17);
+            this.label56.TabIndex = 71;
+            this.label56.Text = "Equipo de Trabajo";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(13, 321);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(67, 17);
+            this.label57.TabIndex = 72;
+            this.label57.Text = "Ambiente";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(13, 403);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(165, 17);
+            this.label58.TabIndex = 73;
+            this.label58.Text = "Organización y Gerencia";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(13, 464);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(141, 17);
+            this.label59.TabIndex = 74;
+            this.label59.Text = "Contexto Institucional";
+            this.label59.Click += new System.EventHandler(this.label59_Click);
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(184, 73);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(539, 17);
+            this.label60.TabIndex = 75;
+            this.label60.Text = "Complejidad y gravedad / Lenguaje Comunicación / Personalidad y factores sociales" +
+    "";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(184, 136);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(1086, 17);
+            this.label61.TabIndex = 76;
+            this.label61.Text = "Diseño de tareas y claridad de la estructura; disponibilidad y uso de protocolos;" +
+    " disponibilidad y confiabilidad de las pruebas diagn´sotica; ayudas para toma de" +
+    " decisiones";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(184, 199);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(407, 17);
+            this.label62.TabIndex = 77;
+            this.label62.Text = "Conocimiento, habilidades y competencia, salud física y mental.";
+            this.label62.Click += new System.EventHandler(this.label62_Click);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(184, 260);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(813, 17);
+            this.label63.TabIndex = 78;
+            this.label63.Text = "Comunicación verbal y escrita, supervisión y disponibilidad de soporte.  Estructu" +
+    "ra del equipo (sonsistenciaa, congruencia, etc).";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(184, 321);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(1144, 17);
+            this.label64.TabIndex = 79;
+            this.label64.Text = "Personal suficientes; mezcla de habilidades; carga de trabajo; patrón de turnos; " +
+    "diseño; disponibilidad y mantenimiento de equipos; soporte administrativo y gere" +
+    "ncial; clima laboral;";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(184, 404);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(825, 17);
+            this.label65.TabIndex = 80;
+            this.label65.Text = "Recursos y limitaciones financieras; estructura organizacional; políticas; estánd" +
+    "ares y metas; prioridades y cultura organizacional.";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(184, 465);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(293, 17);
+            this.label66.TabIndex = 81;
+            this.label66.Text = "Económico y regulatorio / Contactos externos";
+            this.label66.Click += new System.EventHandler(this.label66_Click);
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(184, 338);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(102, 17);
+            this.label67.TabIndex = 82;
+            this.label67.Text = "ambiente físico";
             // 
             // Form1
             // 
@@ -2019,7 +2205,6 @@ namespace SO_Paz_y_Salvo
             ((System.ComponentModel.ISupportInitialize)(this.dgvPM)).EndInit();
             this.tabLondres.ResumeLayout(false);
             this.tabLondres.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabLondres2.ResumeLayout(false);
             this.tabLondres2.PerformLayout();
             this.tabAdjuntos.ResumeLayout(false);
@@ -2085,7 +2270,6 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabLondres;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtPLIndividuo;
         private System.Windows.Forms.TextBox txtPLTarea;
         private System.Windows.Forms.TextBox txtPLPaciente;
@@ -2198,6 +2382,23 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.TextBox txtGCPUERTO;
         private System.Windows.Forms.TextBox txtOidUsAutenticado;
         private System.Windows.Forms.ComboBox cbUsuarios;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label67;
     }
 }
 
