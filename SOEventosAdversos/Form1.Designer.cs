@@ -29,8 +29,8 @@ namespace SO_Paz_y_Salvo
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btGnSalir = new System.Windows.Forms.Button();
             this.tabGrilla = new System.Windows.Forms.TabPage();
@@ -136,7 +136,23 @@ namespace SO_Paz_y_Salvo
             this.label3 = new System.Windows.Forms.Label();
             this.txtQue = new System.Windows.Forms.TextBox();
             this.tabLondres = new System.Windows.Forms.TabPage();
-            this.btnRegProtocolo = new System.Windows.Forms.Button();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
             this.txtPLContexto = new System.Windows.Forms.TextBox();
             this.txtPLOrganizacion = new System.Windows.Forms.TextBox();
             this.txtPLAmbiente = new System.Windows.Forms.TextBox();
@@ -194,23 +210,7 @@ namespace SO_Paz_y_Salvo
             this.txtGCPUERTO = new System.Windows.Forms.TextBox();
             this.txtOidUsAutenticado = new System.Windows.Forms.TextBox();
             this.cbUsuarios = new System.Windows.Forms.ComboBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
+            this.btnRegProtocolo = new System.Windows.Forms.Button();
             this.tabGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.EAP.SuspendLayout();
@@ -392,14 +392,14 @@ namespace SO_Paz_y_Salvo
             this.dgvDatos.AllowUserToResizeRows = false;
             this.dgvDatos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(17, 84);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1135,14 +1135,14 @@ namespace SO_Paz_y_Salvo
             this.dgvPMCorreos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPMCorreos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPMCorreos.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPMCorreos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPMCorreos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPMCorreos.Location = new System.Drawing.Point(427, 59);
             this.dgvPMCorreos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPMCorreos.Name = "dgvPMCorreos";
@@ -1417,16 +1417,171 @@ namespace SO_Paz_y_Salvo
             this.tabLondres.Text = "4.Protocolo de Londres";
             this.tabLondres.UseVisualStyleBackColor = true;
             // 
-            // btnRegProtocolo
+            // label67
             // 
-            this.btnRegProtocolo.Location = new System.Drawing.Point(1184, 594);
-            this.btnRegProtocolo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRegProtocolo.Name = "btnRegProtocolo";
-            this.btnRegProtocolo.Size = new System.Drawing.Size(163, 36);
-            this.btnRegProtocolo.TabIndex = 65;
-            this.btnRegProtocolo.Text = "Registrar Protocolo";
-            this.btnRegProtocolo.UseVisualStyleBackColor = true;
-            this.btnRegProtocolo.Click += new System.EventHandler(this.btnRegProtocolo_Click);
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(184, 338);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(102, 17);
+            this.label67.TabIndex = 82;
+            this.label67.Text = "ambiente físico";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(184, 465);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(293, 17);
+            this.label66.TabIndex = 81;
+            this.label66.Text = "Económico y regulatorio / Contactos externos";
+            this.label66.Click += new System.EventHandler(this.label66_Click);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(184, 404);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(825, 17);
+            this.label65.TabIndex = 80;
+            this.label65.Text = "Recursos y limitaciones financieras; estructura organizacional; políticas; estánd" +
+    "ares y metas; prioridades y cultura organizacional.";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(184, 321);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(1144, 17);
+            this.label64.TabIndex = 79;
+            this.label64.Text = "Personal suficientes; mezcla de habilidades; carga de trabajo; patrón de turnos; " +
+    "diseño; disponibilidad y mantenimiento de equipos; soporte administrativo y gere" +
+    "ncial; clima laboral;";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(184, 260);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(813, 17);
+            this.label63.TabIndex = 78;
+            this.label63.Text = "Comunicación verbal y escrita, supervisión y disponibilidad de soporte.  Estructu" +
+    "ra del equipo (sonsistenciaa, congruencia, etc).";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(184, 199);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(407, 17);
+            this.label62.TabIndex = 77;
+            this.label62.Text = "Conocimiento, habilidades y competencia, salud física y mental.";
+            this.label62.Click += new System.EventHandler(this.label62_Click);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(184, 136);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(1086, 17);
+            this.label61.TabIndex = 76;
+            this.label61.Text = "Diseño de tareas y claridad de la estructura; disponibilidad y uso de protocolos;" +
+    " disponibilidad y confiabilidad de las pruebas diagn´sotica; ayudas para toma de" +
+    " decisiones";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(184, 73);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(539, 17);
+            this.label60.TabIndex = 75;
+            this.label60.Text = "Complejidad y gravedad / Lenguaje Comunicación / Personalidad y factores sociales" +
+    "";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(13, 464);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(141, 17);
+            this.label59.TabIndex = 74;
+            this.label59.Text = "Contexto Institucional";
+            this.label59.Click += new System.EventHandler(this.label59_Click);
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(13, 403);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(165, 17);
+            this.label58.TabIndex = 73;
+            this.label58.Text = "Organización y Gerencia";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(13, 321);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(67, 17);
+            this.label57.TabIndex = 72;
+            this.label57.Text = "Ambiente";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(13, 260);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(125, 17);
+            this.label56.TabIndex = 71;
+            this.label56.Text = "Equipo de Trabajo";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(13, 199);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(64, 17);
+            this.label55.TabIndex = 70;
+            this.label55.Text = "Individuo";
+            this.label55.Click += new System.EventHandler(this.label55_Click_1);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(13, 136);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(126, 17);
+            this.label54.TabIndex = 69;
+            this.label54.Text = "Tarea y tecnología";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(13, 73);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(63, 17);
+            this.label53.TabIndex = 68;
+            this.label53.Text = "Paciente";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(184, 41);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(153, 18);
+            this.label52.TabIndex = 67;
+            this.label52.Text = "Factor Contributivo";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(13, 41);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(58, 18);
+            this.label51.TabIndex = 66;
+            this.label51.Text = "Origen";
             // 
             // txtPLContexto
             // 
@@ -1990,171 +2145,16 @@ namespace SO_Paz_y_Salvo
             this.cbUsuarios.Size = new System.Drawing.Size(172, 24);
             this.cbUsuarios.TabIndex = 69;
             // 
-            // label51
+            // btnRegProtocolo
             // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(13, 41);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(58, 18);
-            this.label51.TabIndex = 66;
-            this.label51.Text = "Origen";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(184, 41);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(153, 18);
-            this.label52.TabIndex = 67;
-            this.label52.Text = "Factor Contributivo";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(13, 73);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(63, 17);
-            this.label53.TabIndex = 68;
-            this.label53.Text = "Paciente";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(13, 136);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(126, 17);
-            this.label54.TabIndex = 69;
-            this.label54.Text = "Tarea y tecnología";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(13, 199);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(64, 17);
-            this.label55.TabIndex = 70;
-            this.label55.Text = "Individuo";
-            this.label55.Click += new System.EventHandler(this.label55_Click_1);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(13, 260);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(125, 17);
-            this.label56.TabIndex = 71;
-            this.label56.Text = "Equipo de Trabajo";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(13, 321);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(67, 17);
-            this.label57.TabIndex = 72;
-            this.label57.Text = "Ambiente";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(13, 403);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(165, 17);
-            this.label58.TabIndex = 73;
-            this.label58.Text = "Organización y Gerencia";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(13, 464);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(141, 17);
-            this.label59.TabIndex = 74;
-            this.label59.Text = "Contexto Institucional";
-            this.label59.Click += new System.EventHandler(this.label59_Click);
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(184, 73);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(539, 17);
-            this.label60.TabIndex = 75;
-            this.label60.Text = "Complejidad y gravedad / Lenguaje Comunicación / Personalidad y factores sociales" +
-    "";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(184, 136);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(1086, 17);
-            this.label61.TabIndex = 76;
-            this.label61.Text = "Diseño de tareas y claridad de la estructura; disponibilidad y uso de protocolos;" +
-    " disponibilidad y confiabilidad de las pruebas diagn´sotica; ayudas para toma de" +
-    " decisiones";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(184, 199);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(407, 17);
-            this.label62.TabIndex = 77;
-            this.label62.Text = "Conocimiento, habilidades y competencia, salud física y mental.";
-            this.label62.Click += new System.EventHandler(this.label62_Click);
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(184, 260);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(813, 17);
-            this.label63.TabIndex = 78;
-            this.label63.Text = "Comunicación verbal y escrita, supervisión y disponibilidad de soporte.  Estructu" +
-    "ra del equipo (sonsistenciaa, congruencia, etc).";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(184, 321);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(1144, 17);
-            this.label64.TabIndex = 79;
-            this.label64.Text = "Personal suficientes; mezcla de habilidades; carga de trabajo; patrón de turnos; " +
-    "diseño; disponibilidad y mantenimiento de equipos; soporte administrativo y gere" +
-    "ncial; clima laboral;";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(184, 404);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(825, 17);
-            this.label65.TabIndex = 80;
-            this.label65.Text = "Recursos y limitaciones financieras; estructura organizacional; políticas; estánd" +
-    "ares y metas; prioridades y cultura organizacional.";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(184, 465);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(293, 17);
-            this.label66.TabIndex = 81;
-            this.label66.Text = "Económico y regulatorio / Contactos externos";
-            this.label66.Click += new System.EventHandler(this.label66_Click);
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(184, 338);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(102, 17);
-            this.label67.TabIndex = 82;
-            this.label67.Text = "ambiente físico";
+            this.btnRegProtocolo.Location = new System.Drawing.Point(1184, 594);
+            this.btnRegProtocolo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRegProtocolo.Name = "btnRegProtocolo";
+            this.btnRegProtocolo.Size = new System.Drawing.Size(163, 36);
+            this.btnRegProtocolo.TabIndex = 65;
+            this.btnRegProtocolo.Text = "Registrar Protocolo";
+            this.btnRegProtocolo.UseVisualStyleBackColor = true;
+            this.btnRegProtocolo.Click += new System.EventHandler(this.btnRegProtocolo_Click);
             // 
             // Form1
             // 
@@ -2348,7 +2348,6 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.TextBox txtIdrActual;
         private System.Windows.Forms.TextBox txtDescripActual;
-        private System.Windows.Forms.Button btnRegProtocolo;
         private System.Windows.Forms.Button btnRegProtocolo2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel stId;
@@ -2399,6 +2398,7 @@ namespace SO_Paz_y_Salvo
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Button btnRegProtocolo;
     }
 }
 

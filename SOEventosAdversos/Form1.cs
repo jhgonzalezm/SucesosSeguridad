@@ -507,16 +507,16 @@ namespace SO_Paz_y_Salvo
 
                 //Protocolo Londres 2
 
-                txtPLPaciente.Text = dgvDatos.CurrentRow.Cells["EAPEQUIP"].Value.ToString();
-                txtPLTarea.Text = dgvDatos.CurrentRow.Cells["EAPFECHA"].Value.ToString();
-                txtPLIndividuo.Text = dgvDatos.CurrentRow.Cells["EAPHISTO"].Value.ToString();
-                txtPLEquipo.Text = dgvDatos.CurrentRow.Cells["EAPPROTO"].Value.ToString();
-                txtPLAmbiente.Text = dgvDatos.CurrentRow.Cells["EAPDECLA"].Value.ToString();
-                txtPLOrganizacion.Text = dgvDatos.CurrentRow.Cells["EAPENTRE"].Value.ToString();
-                txtPLContexto.Text = dgvDatos.CurrentRow.Cells["EAPACCIO"].Value.ToString();
-                txtPLEquipo.Text = dgvDatos.CurrentRow.Cells["EAPINSEG"].Value.ToString();
-                txtPLAmbiente.Text = dgvDatos.CurrentRow.Cells["EAPCOMUN"].Value.ToString();
-                txtPLOrganizacion.Text = dgvDatos.CurrentRow.Cells["EAPLECCI"].Value.ToString();
+                txtPL2Equipo.Text = dgvDatos.CurrentRow.Cells["EAPEQUIP"].Value.ToString();
+                //dpPL2Fecha.Value = dgvDatos.CurrentRow.Cells["EAPFECHA"].Value.ToString();
+                txtPL2Historia.Text = dgvDatos.CurrentRow.Cells["EAPHISTO"].Value.ToString();
+                txtPL2Protocolo.Text = dgvDatos.CurrentRow.Cells["EAPPROTO"].Value.ToString();
+                txtPL2Declaraciones.Text = dgvDatos.CurrentRow.Cells["EAPDECLA"].Value.ToString();
+                txtPL2Entrevista.Text = dgvDatos.CurrentRow.Cells["EAPENTRE"].Value.ToString();
+                txtPL2Acciones.Text = dgvDatos.CurrentRow.Cells["EAPACCIO"].Value.ToString();
+                //txtPLEquipo.Text = dgvDatos.CurrentRow.Cells["EAPINSEG"].Value.ToString();
+                txtPL2Comunicacion.Text = dgvDatos.CurrentRow.Cells["EAPCOMUN"].Value.ToString();
+                txtPL2Lecciones.Text = dgvDatos.CurrentRow.Cells["EAPLECCI"].Value.ToString();
 
                 CargarGrillaPM();
                 CargarGrillaPMCorreos();
@@ -786,8 +786,18 @@ namespace SO_Paz_y_Salvo
                             txtPLEquipo.Text,
                             txtPLAmbiente.Text,
                             txtPLOrganizacion.Text,
-                            txtPLContexto.Text)
-                            ;
+                            txtPLContexto.Text,
+                            txtPL2Equipo.Text,
+                            dpPL2Fecha.Value,
+                            txtPL2Historia.Text,
+                            txtPL2Protocolo.Text,
+                            txtPL2Declaraciones.Text,
+                            txtPL2Entrevista.Text,
+                            txtPL2Acciones.Text,
+                            int.Parse(cbAcciones.SelectedValue.ToString()),
+                            txtPL2Comunicacion.Text,
+                            txtPL2Lecciones.Text
+                            );
 
                         MessageBox.Show("Protocolo Registrado");
                     }
@@ -955,40 +965,47 @@ namespace SO_Paz_y_Salvo
 
         private void btnRegProtocolo2_Click(object sender, EventArgs e)
         {
-            ////VALIDAR CAMPOS
-            //if (txtPLPaciente.Text.Length < 5)
-            //{
-            //    MessageBox.Show("Datos incompletos. Revisar!");
-            //}
-            //else
-            //{
-            //    //UPDATE
-            //    if (Editar == false)
-            //    {
+            //VALIDAR CAMPOS
+            if (txtPLPaciente.Text.Length < 5)
+            {
+                MessageBox.Show("Datos incompletos. Revisar!");
+            }
+            else
+            {
+                //UPDATE
+                if (Editar == false)
+                {
 
-            //        try
-            //        {
-            //            objetoCN.UpdateRegProtocolo2(int.Parse(txtOidActual.Text),
-            //                txtPL2Equipo.Text,
-            //                dpPL2Fecha.Text,
-            //                txtPL2Historia.Text,
-            //                txtPL2Protocolo.Text,
-            //                txtPL2Declaraciones.Text,
-            //                txtPL2Entrevista.Text,
-            //                txtPL2Acciones.Text,
-            //                0,
-            //                txtPL2Comunicacion.Text,
-            //                txtPL2Lecciones.Text)
-            //                ;
+                    try
+                    {
+                        objetoCN.UpdateRegProtocolo(int.Parse(txtOidActual.Text),
+                            txtPLPaciente.Text,
+                            txtPLTarea.Text,
+                            txtPLIndividuo.Text,
+                            txtPLEquipo.Text,
+                            txtPLAmbiente.Text,
+                            txtPLOrganizacion.Text,
+                            txtPLContexto.Text,
+                            txtPL2Equipo.Text,
+                            dpPL2Fecha.Value,
+                            txtPL2Historia.Text,
+                            txtPL2Protocolo.Text,
+                            txtPL2Declaraciones.Text,
+                            txtPL2Entrevista.Text,
+                            txtPL2Acciones.Text,
+                            0,
+                            txtPL2Comunicacion.Text,
+                            txtPL2Lecciones.Text)
+                            ;
 
-            //            MessageBox.Show("Protocolo Registrado");
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            MessageBox.Show("Datos NO Registrados!! : " + ex);
-            //        }
-            //    }
-            //}
+                        MessageBox.Show("Protocolo Registrado");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Datos NO Registrados!! : " + ex);
+                    }
+                }
+            }
         }
 
         private void txtPLTarea_TextChanged(object sender, EventArgs e)

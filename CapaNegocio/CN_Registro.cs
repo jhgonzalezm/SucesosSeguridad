@@ -77,10 +77,10 @@ namespace CapaNegocio
             objetoCD.updateRegAnalisis(oid,  tipoReporte, componente,  causaRaiz,  analizado,  estado, londres);
         }
 
-        public void UpdateRegProtocolo(int oid, string paciente, string tarea, string individuo, string equipo, string ambiente, string organizacion, string contexto)
+        public void UpdateRegProtocolo(int oid, string paciente, string tarea, string individuo, string equipo, string ambiente, string organizacion, string contexto, string equipoInv, DateTime fecha, string historia, string protocolo, string declaraciones, string entrevista, string acciones, int codAcciones, string comunicacion, string lecciones)
         {
 
-            objetoCD.updateRegProtocolo(oid, paciente,  tarea,  individuo,  equipo,  ambiente,  organizacion,  contexto);
+            objetoCD.updateRegProtocolo(oid, paciente,  tarea,  individuo,  equipo,  ambiente,  organizacion,  contexto, equipoInv, fecha, historia, protocolo, declaraciones, entrevista, acciones, codAcciones, comunicacion, lecciones);
         }
 
         //public void UpdateRegProtocolo2(int oid, string equipo, DateTime fecha, string historia, string protocolo, string declaraciones, string entrevista, string acciones, int codAcciones, string comunicacion, string lecciones)

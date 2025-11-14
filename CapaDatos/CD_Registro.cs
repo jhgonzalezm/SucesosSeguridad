@@ -194,7 +194,7 @@ namespace CapaDatos
 
         }
 
-        public void updateRegProtocolo(int oid, string paciente, string tarea, string individuo, string equipo, string ambiente, string organizacion, string contexto)
+        public void updateRegProtocolo(int oid, string paciente, string tarea, string individuo, string equipo, string ambiente, string organizacion, string contexto, string equipoInv, DateTime fecha, string historia, string protocolo, string declaraciones, string entrevista, string acciones, int codAcciones, string comunicacion, string lecciones)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "sp_EAUPROTO";
@@ -209,6 +209,17 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@EAPAMBIE", ambiente);
             comando.Parameters.AddWithValue("@EAPORGAN", organizacion);
             comando.Parameters.AddWithValue("@EAPCONTE", contexto);
+
+            comando.Parameters.AddWithValue("@EAPEQUIP", equipoInv);
+            comando.Parameters.AddWithValue("@EAPFECHA", fecha);
+            comando.Parameters.AddWithValue("@EAPHISTO", historia);
+            comando.Parameters.AddWithValue("@EAPPROTO", protocolo);
+            comando.Parameters.AddWithValue("@EAPDECLA", declaraciones);
+            comando.Parameters.AddWithValue("@EAPENTRE", entrevista);
+            comando.Parameters.AddWithValue("@EAPACCIO", acciones);
+            comando.Parameters.AddWithValue("@EAPINSEG", codAcciones);
+            comando.Parameters.AddWithValue("@EAPCOMUN", comunicacion);
+            comando.Parameters.AddWithValue("@EAPLECCI", lecciones);
 
             comando.ExecuteNonQuery();
 
