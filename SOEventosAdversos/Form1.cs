@@ -20,7 +20,10 @@ namespace SO_Paz_y_Salvo
         private Boolean Editar;
         private Boolean selEvento = false;
         int valCbCauzaRaiz;
-       
+
+        // Control de pestañas removidas
+        private List<TabPage> tabsRemovidos = new List<TabPage>();
+
         public Form1()
         {
             InitializeComponent();
@@ -82,19 +85,71 @@ namespace SO_Paz_y_Salvo
             txtId.Text = "52915469";
             txtPassword.Text = "52915469*";
 
+            txtId.Text = "80192364";
+            txtPassword.Text = "80192364*";
+
+
             CargarCombos();
             CargarGrilla(0);
             valoresPorDefecto();
-            tabsHabilitados(3);
+            tabsPerfil(3);
         }
 
-        private void tabsHabilitados(int perfil)
+        //Remover TABs
+        private void ocultarTab(string tabName)
         {
-            EAP.TabPages.Remove(tabGrilla);
-            EAP.TabPages.Remove(tabAnalisis);
-            EAP.TabPages.Remove(tabLondres);
-            EAP.TabPages.Remove(tabLondres2);
-            EAP.TabPages.Remove(tabAdjuntos);
+            foreach (TabPage tab in EAP.TabPages)
+            {
+                if (tab.Tag.ToString() == tabName)
+                {
+                    tabsRemovidos.Add(tab);  // Guardar para reactivar luego
+                    EAP.TabPages.Remove(tab);
+                    return;
+                }
+            }
+        }
+
+        // Visualizar TABs
+        private void mostrarTab(string tabName)
+        {
+            // 1. Verificar si ya está en el TabControl (evitar duplicado)
+            foreach (TabPage tab in EAP.TabPages)
+            {
+                if (tab.Tag.ToString() == tabName)
+                {
+                    EAP.SelectedTab = tab;  // Ya existe → activarla
+                    return;
+                }
+            }
+
+            // 2. Buscar si está en la lista de removidos
+            var tabRemovida = tabsRemovidos
+                                .FirstOrDefault(t => t.Tag.ToString() == tabName);
+
+            if (tabRemovida != null)
+            {
+                // Agregar de nuevo
+                EAP.TabPages.Add(tabRemovida);
+                EAP.SelectedTab = tabRemovida;
+
+                // Opcional: removerla de la lista de eliminados
+                tabsRemovidos.Remove(tabRemovida);
+                return;
+            }
+
+            //// 3. Si no existe ni fue removida → crearla
+            //TabPage nueva = new TabPage(titulo);
+            //EAP.TabPages.Add(nueva);
+            //EAP.SelectedTab = nueva;
+        }
+      
+        private void tabsPerfil(int perfil) { 
+
+            ocultarTab("tabGrilla");
+            ocultarTab("tabAnalisis");
+            ocultarTab("tabLondres");
+            ocultarTab("tabLondres2");
+            ocultarTab("tabAdjuntos");
             gbNotificar.Visible = false;
 
             EAP.SelectTab("tabRegistro");
@@ -103,22 +158,27 @@ namespace SO_Paz_y_Salvo
             switch (perfil)
             {
                 case 1:
-                    EAP.TabPages.Add(tabGrilla);
-                    EAP.TabPages.Add(tabAnalisis);
-                    EAP.TabPages.Add(tabLondres);
-                    EAP.TabPages.Add(tabLondres2);
-                    EAP.TabPages.Add(tabAdjuntos);
+                    mostrarTab("tabGrilla");
+                    //EAP.TabPages.Add(tabGrilla);
+                    //EAP.TabPages.Add(tabAnalisis);
+                    //EAP.TabPages.Add(tabLondres);
+                    //EAP.TabPages.Add(tabLondres2);
+                    //EAP.TabPages.Add(tabAdjuntos);
 
                     gbClasificacion.Enabled = true;
                     gbNotificar.Visible = true;
                     // Se habilita al seleccionar registro en la grilla
                     //gbNotificar.Enabled = true;
                     gbPlanMejoramiento.Enabled = true;
+                    CargarGrillaPM();
+                    CargarGrillaPMCorreos();
                     break;
                 case 2:
-                    EAP.TabPages.Add(tabGrilla);
-                    EAP.TabPages.Add(tabAnalisis);
-                    EAP.TabPages.Add(tabAdjuntos);
+                    //EAP.TabPages.Add(tabGrilla);
+                    mostrarTab("tabGrilla");
+                    ////EAP.TabPages.Add(tabAnalisis);
+                    ////EAP.TabPages.Add(tabAdjuntos);
+                    //revisar
                     gbClasificacion.Enabled = false;
                     gbNotificar.Enabled = false;
                     gbPlanMejoramiento.Enabled = true;
@@ -127,6 +187,36 @@ namespace SO_Paz_y_Salvo
                     btRegSuceso.Enabled = true;
                     break;
              }
+            ordenarTabs();
+
+        }
+
+        private void tabsHabilitadosSuceso(string londres)
+        {
+
+            EAP.SelectTab("tabRegistro");
+
+            switch (londres)
+            {
+                case "SI": // SI
+                    mostrarTab("tabAnalisis");
+                    mostrarTab("tabLondres");
+                    mostrarTab("tabLondres2");
+                    mostrarTab("tabAdjuntos");
+                    //EAP.TabPages.Add(tabAnalisis);
+                    //EAP.TabPages.Add(tabLondres);
+                    //EAP.TabPages.Add(tabLondres2);
+                    //EAP.TabPages.Add(tabAdjuntos);
+                    break;
+                case "NO": // NO
+                    mostrarTab("tabAnalisis");
+                    //EAP.TabPages.Add(tabAnalisis);
+                    ocultarTab("tabLondres");
+                    ocultarTab("tabLondres2");
+                    mostrarTab("tabAdjuntos");
+                    //EAP.TabPages.Add(tabAdjuntos);
+                    break;
+            }
             ordenarTabs();
 
         }
@@ -143,12 +233,17 @@ namespace SO_Paz_y_Salvo
             }
             EAP.SelectedIndex = 1;
         }
+
+       
         private void CargarGrilla( int usuario)
         {
+            //Cargra grilla de los registros relacionados con los usuario notificados
+            //cargar Grilla - Click se carga la información
+
             CN_Registro objeto = new CN_Registro();
             dgvDatos.DataSource = objeto.MostrarReg( usuario );
 
-            // Registro suceso
+            // Registro suceso 
             dgvDatos.Columns["OID"].Visible = false;
             dgvDatos.Columns["IDR"].Width = 40;
             dgvDatos.Columns["FECHA"].Width = 80;
@@ -514,12 +609,12 @@ namespace SO_Paz_y_Salvo
                 txtPL2Declaraciones.Text = dgvDatos.CurrentRow.Cells["EAPDECLA"].Value.ToString();
                 txtPL2Entrevista.Text = dgvDatos.CurrentRow.Cells["EAPENTRE"].Value.ToString();
                 txtPL2Acciones.Text = dgvDatos.CurrentRow.Cells["EAPACCIO"].Value.ToString();
-                //txtPLEquipo.Text = dgvDatos.CurrentRow.Cells["EAPINSEG"].Value.ToString();
+                cbCargoRol.Text = dgvDatos.CurrentRow.Cells["ROL"].Value.ToString();
+                cbAcciones.Text = dgvDatos.CurrentRow.Cells["EAPINSEG"].Value.ToString();
                 txtPL2Comunicacion.Text = dgvDatos.CurrentRow.Cells["EAPCOMUN"].Value.ToString();
                 txtPL2Lecciones.Text = dgvDatos.CurrentRow.Cells["EAPLECCI"].Value.ToString();
 
-                CargarGrillaPM();
-                CargarGrillaPMCorreos();
+                tabsHabilitadosSuceso(cbProtocoloLondres.Text = dgvDatos.CurrentRow.Cells["LONDRES"].Value.ToString());
 
                 btRegSuceso.Enabled = false;
 
@@ -734,7 +829,9 @@ namespace SO_Paz_y_Salvo
                             int.Parse(cbTipoReporte.SelectedValue.ToString()),
                             int.Parse(cbComponente.SelectedValue.ToString()),
                             int.Parse(cbCausaRaiz.SelectedValue.ToString()),
-                            txtAnalizado.Text,2, int.Parse(cbProtocoloLondres.SelectedValue.ToString()));
+                            txtAnalizado.Text,
+                            2, 
+                            int.Parse(cbProtocoloLondres.SelectedValue.ToString()));
                         // int.Parse(cbEstado.SelectedValue.ToString()));
                         //cbEstado.ValueMember = "2";
                         MessageBox.Show("Analisis Registrado");
@@ -993,7 +1090,7 @@ namespace SO_Paz_y_Salvo
                             txtPL2Declaraciones.Text,
                             txtPL2Entrevista.Text,
                             txtPL2Acciones.Text,
-                            0,
+                            int.Parse(cbAcciones.SelectedValue.ToString()),
                             txtPL2Comunicacion.Text,
                             txtPL2Lecciones.Text)
                             ;
@@ -1025,7 +1122,7 @@ namespace SO_Paz_y_Salvo
                     txtPerfil.Text = dgvLogin.CurrentRow.Cells["EAPERDES"].Value.ToString();
                     txtNombre.Text = dgvLogin.CurrentRow.Cells["USUNOMBRE"].Value.ToString();
                     txtRolNom.Text = dgvLogin.CurrentRow.Cells["USUROLNOM"].Value.ToString();
-                    tabsHabilitados(int.Parse(dgvLogin.CurrentRow.Cells["PERFIL"].Value.ToString()));
+                    tabsPerfil(int.Parse(dgvLogin.CurrentRow.Cells["PERFIL"].Value.ToString()));
                     txtOidUsAutenticado.Text = dgvLogin.CurrentRow.Cells["OID_US_AUT"].Value.ToString();
 
                     // Información para envío de correos
