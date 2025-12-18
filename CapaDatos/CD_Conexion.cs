@@ -10,7 +10,7 @@ namespace CapaDatos
 {
     public class CD_Conexion
     {
-        private SqlConnection Conexion = new SqlConnection(Properties.Settings.Default.cadenaConexion);
+        private SqlConnection Conexion = new SqlConnection(Properties.Settings.Default.cadenaConexionSO);
 
         public SqlConnection AbrirConexion()
         {

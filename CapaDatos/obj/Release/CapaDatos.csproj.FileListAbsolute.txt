@@ -1,0 +1,7 @@
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\bin\Release\CapaDatos.dll.config
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\bin\Release\CapaDatos.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\bin\Release\CapaDatos.pdb
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\obj\Release\CapaDatos.csproj.CoreCompileInputs.cache
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\obj\Release\CapaDatos.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\obj\Release\CapaDatos.pdb
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaDatos\obj\Release\CapaDatos.csproj.AssemblyReference.cache

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,8 +18,10 @@ namespace SO_Paz_y_Salvo
         private Boolean combosCargados, comboSecundarioCargado;
         private DataTable dt;
         private DataSet ds;
-        private Boolean Editar;
+        private Boolean editarPM = false;
+        private Boolean editarEvento = false;
         private Boolean selEvento = false;
+        private Boolean usuarioAutenticado = false;
         int valCbCauzaRaiz;
 
         // Control de pestañas removidas
@@ -85,8 +88,9 @@ namespace SO_Paz_y_Salvo
             txtId.Text = "52915469";
             txtPassword.Text = "52915469*";
 
-            txtId.Text = "80192364";
-            txtPassword.Text = "80192364*";
+            // tipo 2
+            //txtId.Text = "80192364";
+            //txtPassword.Text = "80192364*";
 
 
             CargarCombos();
@@ -170,8 +174,9 @@ namespace SO_Paz_y_Salvo
                     // Se habilita al seleccionar registro en la grilla
                     //gbNotificar.Enabled = true;
                     gbPlanMejoramiento.Enabled = true;
-                    CargarGrillaPM();
-                    CargarGrillaPMCorreos();
+                    //se deben cargar grillas y correos cuando se selecciona el registro
+                    //CargarGrillaPM();
+                    //CargarGrillaPMCorreos();
                     break;
                 case 2:
                     //EAP.TabPages.Add(tabGrilla);
@@ -195,27 +200,27 @@ namespace SO_Paz_y_Salvo
         {
 
             EAP.SelectTab("tabRegistro");
+           // MessageBox.Show(londres);
 
-            switch (londres)
+            if (londres == "SI")
             {
-                case "SI": // SI
-                    mostrarTab("tabAnalisis");
-                    mostrarTab("tabLondres");
-                    mostrarTab("tabLondres2");
-                    mostrarTab("tabAdjuntos");
-                    //EAP.TabPages.Add(tabAnalisis);
-                    //EAP.TabPages.Add(tabLondres);
-                    //EAP.TabPages.Add(tabLondres2);
-                    //EAP.TabPages.Add(tabAdjuntos);
-                    break;
-                case "NO": // NO
-                    mostrarTab("tabAnalisis");
-                    //EAP.TabPages.Add(tabAnalisis);
-                    ocultarTab("tabLondres");
-                    ocultarTab("tabLondres2");
-                    mostrarTab("tabAdjuntos");
-                    //EAP.TabPages.Add(tabAdjuntos);
-                    break;
+                mostrarTab("tabAnalisis");
+                mostrarTab("tabLondres");
+                mostrarTab("tabLondres2");
+                mostrarTab("tabAdjuntos");
+                //EAP.TabPages.Add(tabAnalisis);
+                //EAP.TabPages.Add(tabLondres);
+                //EAP.TabPages.Add(tabLondres2);
+                //EAP.TabPages.Add(tabAdjuntos);
+            }
+            else
+            {
+                mostrarTab("tabAnalisis");
+                //EAP.TabPages.Add(tabAnalisis);
+                ocultarTab("tabLondres");
+                ocultarTab("tabLondres2");
+                mostrarTab("tabAdjuntos");
+                //EAP.TabPages.Add(tabAdjuntos);
             }
             ordenarTabs();
 
@@ -234,11 +239,14 @@ namespace SO_Paz_y_Salvo
             EAP.SelectedIndex = 1;
         }
 
-       
         private void CargarGrilla( int usuario)
         {
             //Cargra grilla de los registros relacionados con los usuario notificados
             //cargar Grilla - Click se carga la información
+
+            dgvDatos.DataSource = null;
+            dgvDatos.Rows.Clear();
+            dgvDatos.Refresh();
 
             CN_Registro objeto = new CN_Registro();
             dgvDatos.DataSource = objeto.MostrarReg( usuario );
@@ -273,14 +281,29 @@ namespace SO_Paz_y_Salvo
 
         private void CargarGrillaPM()
         {
-            CN_Registro objeto = new CN_Registro();
-            dgvPM.DataSource = objeto.MostrarRegPM(int.Parse(txtOidActual.Text));
+            try
+            {
+                dgvPM.DataSource = null;
+                dgvPM.Rows.Clear();
+                dgvPM.Refresh();
+                CN_Registro objeto = new CN_Registro();
+                dgvPM.DataSource = objeto.MostrarPM(int.Parse(txtOidActual.Text));
+                dgvPM.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Err: " + ex);
+            }
         }
 
         private void CargarGrillaPMCorreos()
         {
+            dgvPMCorreos.DataSource = null;
+            dgvPMCorreos.Rows.Clear();
             CN_Registro objeto = new CN_Registro();
             dgvPMCorreos.DataSource = objeto.MostrarRegPMCorreos(int.Parse(txtOidActual.Text));
+            dgvPMCorreos.Refresh();
             dgvPMCorreos.Columns["OID"].Visible = false;
             dgvPMCorreos.Columns["PMCORREO"].Visible = false;
             dgvPMCorreos.Columns["CECORREO"].Visible = false;
@@ -317,13 +340,8 @@ namespace SO_Paz_y_Salvo
             cbCorreoOrigen.SelectedValue = 0;
             cbProtocoloLondres.SelectedValue = 0;
 
-            txtQue.Text = string.Empty;
-            txtQuien.Text = string.Empty;
-            txtComo.Text = string.Empty;
-            txtDonde.Text = string.Empty;
-            txtCuando.Text = string.Empty;
-            txtAnalizado.Text = string.Empty;
-            txtResponsable.Text = string.Empty;
+            limpiarGrillaPM();
+
 
             //falso para poder borrar la grilla
            
@@ -352,6 +370,16 @@ namespace SO_Paz_y_Salvo
             cbAcciones.SelectedValue = 0;
         }
 
+        private void limpiarGrillaPM()
+        {
+            txtQue.Text = string.Empty;
+            txtQuien.Text = string.Empty;
+            txtComo.Text = string.Empty;
+            txtDonde.Text = string.Empty;
+            txtCuando.Text = string.Empty;
+            txtAnalizado.Text = string.Empty;
+            txtResponsable.Text = string.Empty;
+        }
 
         private void cantidadReg()
         {
@@ -404,13 +432,14 @@ namespace SO_Paz_y_Salvo
                     ComboBox.DataSource = ds.Tables[0].DefaultView;
                     ComboBox.ValueMember = ds.Tables[0].Columns[0].Caption;
                     ComboBox.DisplayMember = ds.Tables[0].Columns[1].Caption;
-                    // algo excepcional
+                    // algo excepcional correos a notificar
                     if (criterio == 27)
                     {
                         cbUsuarios.DataSource = ds.Tables[0].DefaultView;
                         cbUsuarios.ValueMember = ds.Tables[0].Columns[0].Caption;
                         cbUsuarios.DisplayMember = ds.Tables[0].Columns[2].Caption;
                     }
+
                 }
             }
             catch (Exception ex)
@@ -477,7 +506,7 @@ namespace SO_Paz_y_Salvo
             else
             {
                 //INSERTAR
-                if (Editar == false)
+                if (editarEvento == false)
                 {
 
                     try
@@ -488,29 +517,14 @@ namespace SO_Paz_y_Salvo
                             int.Parse(cbRegionalSede.SelectedValue.ToString()));
 
                         MessageBox.Show("Evento Registrado");
+                        LimpiarCamposRegistroSuceso();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("no se pudo insertar los datos por: " + ex);
                     }
                 }
-                //EDITAR
-                //if (Editar == true)
-                //{
-
-                //    try
-                //    {
-                //        objetoCN.EditarReg(dtFecha.Value, cbMunicipio.SelectedItem.ToString(), txtId.Text, txtReporta.Text, txtEvento.Text, oid);
-                //        //MessageBox.Show("Editado correctamente");
-                //        MostrarProdctos();
-                //        limpiarForm();
-                //        Editar = false;
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show("No se pudo editar los datos por: " + ex);
-                //    }
-                //}
+                
             }
         }
 
@@ -556,6 +570,7 @@ namespace SO_Paz_y_Salvo
             if (dgvDatos.SelectedRows.Count > 0)
             {
                 selEvento = true;
+                LimpiarCamposRegistroSuceso();
                 gbNotificar.Enabled = true;
                 dtFecha.Text = dgvDatos.CurrentRow.Cells["FECHA"].Value.ToString();
                 txtIdPac.Text = dgvDatos.CurrentRow.Cells["ID"].Value.ToString();
@@ -571,8 +586,6 @@ namespace SO_Paz_y_Salvo
                 cbCargoRol.Text = dgvDatos.CurrentRow.Cells["ROL"].Value.ToString();
                 txtRepNom.Text = dgvDatos.CurrentRow.Cells["REPORTADO_POR"].Value.ToString();
                 cbRegionalSede.Text = dgvDatos.CurrentRow.Cells["SEDE"].Value.ToString();
-
-                
                 cbEstado.Text = dgvDatos.CurrentRow.Cells["ESTADO"].Value.ToString();
 
                 //Variables de Control y visualización del registro actual
@@ -587,8 +600,14 @@ namespace SO_Paz_y_Salvo
                 cbTipoReporte.Text = dgvDatos.CurrentRow.Cells["TIPO_REPORTE"].Value.ToString();
                 cbComponente.SelectedValue = dgvDatos.CurrentRow.Cells["EAACOMPO"].Value;
                 cbCausaRaiz.SelectedValue = dgvDatos.CurrentRow.Cells["EAACAURA"].Value;
-                txtAnalizado.Text = dgvDatos.CurrentRow.Cells["ANALIZADO"].Value.ToString();
+                if (dgvDatos.CurrentRow.Cells["ANALIZADO"].Value.ToString() != string.Empty)
+                    txtAnalizado.Text = dgvDatos.CurrentRow.Cells["ANALIZADO"].Value.ToString();
+                else
+                    txtAnalizado.Text = txtNombre.Text;
+
                 cbProtocoloLondres.Text = dgvDatos.CurrentRow.Cells["LONDRES"].Value.ToString();
+
+                CargarGrillaPM();
 
                 //Protocolo Londres 1
 
@@ -616,29 +635,13 @@ namespace SO_Paz_y_Salvo
 
                 tabsHabilitadosSuceso(cbProtocoloLondres.Text = dgvDatos.CurrentRow.Cells["LONDRES"].Value.ToString());
 
+                // Mostrar archivos adjuntos
+                mostrarGillaAdjuntos();
+
                 btRegSuceso.Enabled = false;
 
                 gbRegSucesos.Enabled = false;
 
-                //cbEstado registrado
-
-                //if (int.Parse(cbEstado.SelectedValue.ToString())== 1) 
-                //{
-                //    //Perfil que llena el plan de mantenimiento
-                //    if (int.Parse(dgvLogin.CurrentRow.Cells["PERFIL"].Value.ToString()) == 2)
-                //    {
-                //        EAP.TabPages.Remove(tabAnalisis);
-                //    }
-                // }
-                //else
-                //{
-                //    if (!EAP.TabPages.Contains(tabAnalisis))
-                //    {
-                //        EAP.TabPages.Add(tabAnalisis);
-                //    }
-
-                //}
-                //ordenarTabs();
             }
             else
                 MessageBox.Show("Debe seleccionar una fila");
@@ -720,7 +723,7 @@ namespace SO_Paz_y_Salvo
             else
             {
                 //INSERTAR
-                if (Editar == false)
+                if (editarPM == false)
                 {
 
                     try
@@ -735,23 +738,21 @@ namespace SO_Paz_y_Salvo
                         MessageBox.Show("no se pudo insertar los datos por: " + ex);
                     }
                 }
-                //EDITAR
-                //if (Editar == true)
-                //{
-
-                //    try
-                //    {
-                //        objetoCN.EditarReg(dtFecha.Value, cbMunicipio.SelectedItem.ToString(), txtId.Text, txtReporta.Text, txtEvento.Text, oid);
-                //        //MessageBox.Show("Editado correctamente");
-                //        MostrarProdctos();
-                //        limpiarForm();
-                //        Editar = false;
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show("No se pudo editar los datos por: " + ex);
-                //    }
-                //}
+                else
+                {
+                    try
+                    {
+                        objetoCN.updatePM(int.Parse(txtOidActual.Text), txtQue.Text, txtQuien.Text, txtComo.Text, txtDonde.Text, txtCuando.Text, int.Parse(cbCumplio.SelectedValue.ToString()),
+                            txtResponsable.Text, int.Parse(cbVerificado.SelectedValue.ToString()), int.Parse(txtOidPM.Text));
+                        CargarGrillaPM();
+                        MessageBox.Show("Evento Registrado");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("no se pudo insertar los datos por: " + ex);
+                    }
+                }
+               
             }
         }
 
@@ -765,7 +766,7 @@ namespace SO_Paz_y_Salvo
             else
             {
                 //INSERTAR
-                if (Editar == false)
+                if (editarEvento == false)
                 {
                     //MessageBox.Show(txtOidActual.Text + " ** " + cbNotificar.SelectedValue.ToString());
                     try
@@ -780,23 +781,7 @@ namespace SO_Paz_y_Salvo
                         //+ex);
                     }
                 }
-                //EDITAR
-                //if (Editar == true)
-                //{
-
-                //    try
-                //    {
-                //        objetoCN.EditarReg(dtFecha.Value, cbMunicipio.SelectedItem.ToString(), txtId.Text, txtReporta.Text, txtEvento.Text, oid);
-                //        //MessageBox.Show("Editado correctamente");
-                //        MostrarProdctos();
-                //        limpiarForm();
-                //        Editar = false;
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show("No se pudo editar los datos por: " + ex);
-                //    }
-                //}
+              
             }
         }
 
@@ -820,7 +805,7 @@ namespace SO_Paz_y_Salvo
             else
             {
                 //UPDATE
-                if (Editar == false)
+                if (editarEvento == false)
                 {
                     // EN ESTADO SE COLOCA 2 PARA INDICAR QUE FUE ANALIZADO
                     try
@@ -834,6 +819,8 @@ namespace SO_Paz_y_Salvo
                             int.Parse(cbProtocoloLondres.SelectedValue.ToString()));
                         // int.Parse(cbEstado.SelectedValue.ToString()));
                         //cbEstado.ValueMember = "2";
+                        //if (usuarioAutenticado)
+                            CargarGrilla(int.Parse(txtOidUsAutenticado.Text));
                         MessageBox.Show("Analisis Registrado");
                     }
                     catch (Exception ex)
@@ -841,23 +828,7 @@ namespace SO_Paz_y_Salvo
                         MessageBox.Show("Datos NO Registrados!! : " + ex);
                     }
                 }
-                //EDITAR
-                //if (Editar == true)
-                //{
-
-                //    try
-                //    {
-                //        objetoCN.EditarReg(dtFecha.Value, cbMunicipio.SelectedItem.ToString(), txtId.Text, txtReporta.Text, txtEvento.Text, oid);
-                //        //MessageBox.Show("Editado correctamente");
-                //        MostrarProdctos();
-                //        limpiarForm();
-                //        Editar = false;
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show("No se pudo editar los datos por: " + ex);
-                //    }
-                //}
+  
             }
         }
 
@@ -871,7 +842,7 @@ namespace SO_Paz_y_Salvo
             else
             {
                 //UPDATE
-                if (Editar == false)
+                if (editarEvento == false)
                 {
 
                     try
@@ -903,23 +874,7 @@ namespace SO_Paz_y_Salvo
                         MessageBox.Show("Datos NO Registrados!! : " + ex);
                     }
                 }
-                //EDITAR
-                //if (Editar == true)
-                //{
-
-                //    try
-                //    {
-                //        objetoCN.EditarReg(dtFecha.Value, cbMunicipio.SelectedItem.ToString(), txtId.Text, txtReporta.Text, txtEvento.Text, oid);
-                //        //MessageBox.Show("Editado correctamente");
-                //        MostrarProdctos();
-                //        limpiarForm();
-                //        Editar = false;
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show("No se pudo editar los datos por: " + ex);
-                //    }
-                //}
+ 
             }
         }
 
@@ -1070,7 +1025,7 @@ namespace SO_Paz_y_Salvo
             else
             {
                 //UPDATE
-                if (Editar == false)
+                if (editarEvento == false)
                 {
 
                     try
@@ -1131,6 +1086,7 @@ namespace SO_Paz_y_Salvo
                     txtGCSERVIDOR.Text = dgvLogin.CurrentRow.Cells["GCSERVIDOR"].Value.ToString();
                     txtGCPUERTO.Text = dgvLogin.CurrentRow.Cells["GCPUERTO"].Value.ToString();
                     CargarGrilla(int.Parse(txtOidUsAutenticado.Text));
+                    usuarioAutenticado = true;
 
                 }
                 else
@@ -1199,6 +1155,132 @@ namespace SO_Paz_y_Salvo
         private void label66_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void EAP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPM_SelectionChanged(object sender, EventArgs e)
+        {
+            txtQue.Text = dgvPM.CurrentRow.Cells["QUE"].Value.ToString();
+            txtQuien.Text = dgvPM.CurrentRow.Cells["QUIEN"].Value.ToString();
+            txtComo.Text = dgvPM.CurrentRow.Cells["COMO"].Value.ToString();
+            txtDonde.Text = dgvPM.CurrentRow.Cells["DONDE"].Value.ToString();
+            txtCuando.Text = dgvPM.CurrentRow.Cells["CUANDO"].Value.ToString();
+            txtResponsable.Text = dgvPM.CurrentRow.Cells["RESPONSABLE"].Value.ToString();
+            cbVerificado.Text = dgvPM.CurrentRow.Cells["VERIFICADO"].Value.ToString();
+            cbCumplio.Text = dgvPM.CurrentRow.Cells["CUMPLIO"].Value.ToString();
+
+            txtOidPM.Text = dgvPM.CurrentRow.Cells["OID"].Value.ToString();
+
+            editarPM = true;
+            btnAdicionar.Text = "Actualizar";
+
+
+        }
+
+        private void dgvPM_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == -1)   // Encabezado de columna
+            {
+                // Evitar que seleccione o haga clic
+                dgvPM.ClearSelection();
+                return;
+            }
+        }
+
+        private void dgvDatos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == -1)   // Encabezado de columna
+            {
+                // Evitar que seleccione o haga clic
+                dgvDatos.ClearSelection();
+                return;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            limpiarGrillaPM();
+            editarPM = false;
+            btnAdicionar.Text = "Registrar";
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofdAdjunto = new OpenFileDialog())
+            {
+                ofdAdjunto.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                if (ofdAdjunto.ShowDialog() == DialogResult.OK)
+                {
+                    txtRutaArchivo.Text = ofdAdjunto.FileName;
+                }
+            }
+        }
+
+        private void btnCargarAdjunto_Click(object sender, EventArgs e)
+        {
+            string archivoOrigen = txtRutaArchivo.Text;
+
+            if (!File.Exists(archivoOrigen))
+            {
+                MessageBox.Show("Seleccione un archivo PDF antes de continuar.");
+                return;
+            }
+
+            // Ruta del repositorio local — cámbiala por la que necesites
+            //string carpetaDestino = @"D:\RepositorioPDF";
+            string carpetaDestino = @"F:\RepositorioSucesosSeguridad";
+            // Crear carpeta si no existe
+            if (!Directory.Exists(carpetaDestino))
+            {
+                Directory.CreateDirectory(carpetaDestino);
+            }
+
+            // Nombre del archivo
+            string nombreArchivo = Path.GetFileName(archivoOrigen);
+            string destino = Path.Combine(carpetaDestino, nombreArchivo);
+
+            // Evitar que un archivo existente se sobrescriba
+            if (File.Exists(destino))
+            {
+                string nuevoNombre = $"{Path.GetFileNameWithoutExtension(nombreArchivo)}_{Guid.NewGuid()}.pdf";
+                destino = Path.Combine(carpetaDestino, nuevoNombre);
+            }
+
+            // Copiar PDF
+            File.Copy(archivoOrigen, destino);
+            objetoCN.InsertarAdjunto(int.Parse(txtOidActual.Text), nombreArchivo, destino);
+            mostrarGillaAdjuntos();
+           
+            MessageBox.Show("El archivo PDF se cargó correctamente.");
+        }
+
+        private void mostrarGillaAdjuntos()
+        {
+            dgvAdjuntos.DataSource = null;
+            dgvAdjuntos.Rows.Clear();
+            dgvAdjuntos.Refresh();
+            CN_Registro objetoCN = new CN_Registro();
+            dgvAdjuntos.DataSource = objetoCN.grillaAdjunto(int.Parse(txtOidActual.Text));
+            dgvAdjuntos.Columns["DOCUMENTO"].Width = 500;
+            dgvAdjuntos.Columns["OID"].Visible = false;
+    //        dgvAdjuntos.Columns["EANMREGIS"].Visible = false;
+            //dgvAdjuntos.Columns["EANNOMFIL"].Visible = false;
+
+        }
+
+        private void dgvAdjuntos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string ruta = dgvAdjuntos.Rows[e.RowIndex]
+                    .Cells["DOCUMENTO"].Value.ToString();
+
+                System.Diagnostics.Process.Start(ruta);
+            }
         }
 
         private void cbCausaRaiz_SelectedIndexChanged(object sender, EventArgs e)

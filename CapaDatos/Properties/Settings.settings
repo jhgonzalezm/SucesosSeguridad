@@ -5,5 +5,8 @@
     <Setting Name="cadenaConexion" Type="System.String" Scope="User">
       <Value Profile="(Default)">Server=LENOVO-JHG;DataBase=SODB;User Id=sa;Password=admin</Value>
     </Setting>
+    <Setting Name="cadenaConexionSO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Server=SRV_TALLER\SQLEXPRESS01;DataBase=SODB;User Id=sa;Password=S3rv10ftalm0s123*</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -121,12 +121,38 @@ namespace CapaDatos
 
         }
 
+        public void updatePM(int EAOID, string que, string quien, string como, string donde, string cuando, int cumplio, string responsable, int verificado, int oidPM)
+        {
+            //REGISTRO INICIAL DEL SUCESO
+
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "sp_EAUPMPLAN";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
+
+            comando.Parameters.AddWithValue("@EAOID", EAOID);
+            comando.Parameters.AddWithValue("@PMQUE", que);
+            comando.Parameters.AddWithValue("@PMQUIEN", quien);
+            comando.Parameters.AddWithValue("@PMCOMO", como);
+            comando.Parameters.AddWithValue("@PMDONDE", donde);
+            comando.Parameters.AddWithValue("@PMCUANDO", cuando);
+            comando.Parameters.AddWithValue("@PMCUMPLIO", cumplio);
+            comando.Parameters.AddWithValue("@PMRESPON", responsable);
+            comando.Parameters.AddWithValue("@PMVERIFI", verificado);
+            comando.Parameters.AddWithValue("@PMFECREG", DateTime.Now);
+            comando.Parameters.AddWithValue("@PMOID", oidPM);
+
+            comando.ExecuteNonQuery();
+
+            comando.Parameters.Clear();
+
+        }
         public void InsertarRegCor(int EAOID, int correo, int usuario)
         {
             //REGISTRO INICIAL DEL SUCESO
 
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_EARCPLAN";
+            comando.CommandText = "sp_EARUPLAN";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.Clear();
 
@@ -226,29 +252,44 @@ namespace CapaDatos
             comando.Parameters.Clear();
         }
 
-        //public void updateRegProtocolo2(int oid, string equipo, DateTime fecha, string historia, string protocolo, string declaraciones, string entrevista, string acciones, int codAcciones, string comunicacion, string lecciones)
-        //{
-        //    comando.Connection = conexion.AbrirConexion();
-        //    comando.CommandText = "sp_EAUPROTO2";
-        //    comando.CommandType = CommandType.StoredProcedure;
-        //    comando.Parameters.Clear();
+        public void InsertarAdjunto(int EANMREGIS, string file, string path)
+        {
+            //REGISTRO INICIAL DEL SUCESO
 
-        //    comando.Parameters.AddWithValue("@EAOID", oid);
-        //    comando.Parameters.AddWithValue("@EAPEQUIP", equipo);
-        //    comando.Parameters.AddWithValue("@EAPFECHA", fecha);
-        //    comando.Parameters.AddWithValue("@EAPHISTO", historia);
-        //    comando.Parameters.AddWithValue("@EAPPROTO", declaraciones);
-        //    comando.Parameters.AddWithValue("@EAPDECLA", declaraciones);
-        //    comando.Parameters.AddWithValue("@EAPENTRE", entrevista);
-        //    comando.Parameters.AddWithValue("@EAPACCIO", acciones);
-        //    comando.Parameters.AddWithValue("@EAPINSEG", codAcciones);
-        //    comando.Parameters.AddWithValue("@EAPCOMUN", comunicacion);
-        //    comando.Parameters.AddWithValue("@EAPLECCI", lecciones);
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "sp_EAGADJUN";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
 
-        //    comando.ExecuteNonQuery();
 
-        //    comando.Parameters.Clear();
-        //}
+            comando.Parameters.AddWithValue("@EANMREGIS", EANMREGIS);
+            comando.Parameters.AddWithValue("@EANNOMFIL", file);
+            comando.Parameters.AddWithValue("@EANRUTFIL", path);
+            comando.Parameters.AddWithValue("@OPTION",'I');
+
+            comando.ExecuteNonQuery();
+
+            comando.Parameters.Clear();
+
+        }
+        public DataTable grillaAdjunto(int EANMREGIS)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "sp_EAGADJUN";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
+
+            comando.Parameters.AddWithValue("@EANMREGIS", EANMREGIS);
+            comando.Parameters.AddWithValue("@EANNOMFIL", string.Empty);
+            comando.Parameters.AddWithValue("@EANRUTFIL", string.Empty);
+            comando.Parameters.AddWithValue("@OPTION", 'Q');
+
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+
+        }
 
     }
 }

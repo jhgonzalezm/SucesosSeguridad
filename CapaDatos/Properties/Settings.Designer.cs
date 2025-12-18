@@ -34,5 +34,18 @@ namespace CapaDatos.Properties {
                 this["cadenaConexion"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=SRV_TALLER\\SQLEXPRESS01;DataBase=SODB;User Id=sa;Password=S3rv10ftalm0s123" +
+            "*")]
+        public string cadenaConexionSO {
+            get {
+                return ((string)(this["cadenaConexionSO"]));
+            }
+            set {
+                this["cadenaConexionSO"] = value;
+            }
+        }
     }
 }

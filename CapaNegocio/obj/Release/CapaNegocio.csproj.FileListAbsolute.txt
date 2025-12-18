@@ -1,0 +1,10 @@
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\bin\Release\CapaNegocio.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\bin\Release\CapaNegocio.pdb
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\bin\Release\CapaDatos.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\bin\Release\CapaDatos.pdb
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\bin\Release\CapaDatos.dll.config
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\obj\Release\CapaNegocio.csproj.AssemblyReference.cache
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\obj\Release\CapaNegocio.csproj.CoreCompileInputs.cache
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\obj\Release\CapaNegocio.csproj.CopyComplete
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\obj\Release\CapaNegocio.dll
+D:\Google Drive\AppNetC#\SOEventosAdversos\CapaNegocio\obj\Release\CapaNegocio.pdb
